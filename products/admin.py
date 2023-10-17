@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, ProductImage, Category
+
+
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    fields = ['thumbnail_image', 'detailed_image']
+    extra = 0
+
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
@@ -8,10 +15,12 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'price',
         'rating',
-        'image',
     )
 
     ordering = ('sku',)
+
+    inlines = [ProductImageInline]
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

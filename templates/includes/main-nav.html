@@ -1,45 +1,36 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Home
-            </a>
+        <li class="nav-item">
+            <a class="nav-link active logo-font font-weight-bold nav-link text-black mr-5" id="home-page" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
+
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Cards
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">Birthday Cards</a>
-                <a href="" class="dropdown-item ">Love</a>
-                <a href="" class="dropdown-item ">Christmas</a>
-                <a href="" class="dropdown-item ">Other</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Cards</a>
+                <a href="{% url 'products' %}?category=birthday_cards" class="dropdown-item">Birthday Cards</a>
+                <a href="{% url 'products' %}?category=love" class="dropdown-item ">Love</a>
+                <a href="{% url 'products' %}?category=christmas" class="dropdown-item ">Christmas</a>
+                <a href="{% url 'products' %}?category=other" class="dropdown-item ">Other</a>
+                <a href="{% url 'products' %}?category=birthday_cards,love,christmas,other" class="dropdown-item">All Cards</a>
             </div>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pricing and delivery
-            </a>
+        <li class="nav-item">
+            <a class="nav-link active logo-font font-weight-bold nav-link text-black mr-5" id="pricing-and-delivery" aria-current="page" href="">Pricing and delivery</a>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                About Us
-            </a>
+        <li class="nav-item">
+            <a class="nav-link active logo-font font-weight-bold nav-link text-black mr-5" id="about-us" aria-current="page" href="">About us</a>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Reviews
-            </a>
+        <li class="nav-item">
+            <a class="nav-link active logo-font font-weight-bold nav-link text-black mr-5" id="reviews" aria-current="page" href="">Reviews</a>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
-            </a>
+        <li class="nav-item">
+            <a class="nav-link active logo-font font-weight-bold nav-link text-black mr-5" id="special-offers" aria-current="page" href="">Special offers</a>
         </li>
     </ul>
 </div>

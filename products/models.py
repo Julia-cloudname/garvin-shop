@@ -25,6 +25,15 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     thumbnail_image = models.ImageField(upload_to='products/thumbnails/', null=True, blank=True)
     detailed_image = models.ImageField(upload_to='products/detailed/', null=True, blank=True)
+    CARD_TYPES = (
+        ('horizontal', 'Horizontal Card'),
+        ('vertical', 'Vertical Card'),
+    )
+    card_type = models.CharField(
+        max_length=10,
+        choices=CARD_TYPES,
+        default='vertical',
+    )
 
     def __str__(self):
         return self.name

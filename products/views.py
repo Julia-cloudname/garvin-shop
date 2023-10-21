@@ -14,6 +14,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    card_type = None
 
     if request.GET:
         if 'sort' in request.GET:
@@ -29,7 +30,7 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-            
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -40,9 +41,13 @@ def all_products(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+
+        if 'card_type' in request.GET:
+            card_type = request.GET['card_type']
+            products = products.filter(card_type=card_type)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -51,6 +56,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'current_card_type': card_type,   
     }
 
     return render(request, 'products/products.html', context)

@@ -15,6 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'price',
         'rating',
+        'card_type',
     )
 
     ordering = ('sku',)

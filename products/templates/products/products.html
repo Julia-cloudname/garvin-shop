@@ -39,6 +39,13 @@
                                 <option value="vertical" {% if current_card_type == 'vertical' %}selected{% endif %}>Vertical</option>
                             </select>
                         </div>
+                        <div class="sort-select-wrapper w-50">
+                            <select id="card-type-selector" class="custom-select custom-select-sm rounded-0 border border-black">
+                                <option value="all" {% if not current_card_type %}selected{% endif %}>All</option>
+                                <option value="horizontal" {% if current_card_type == 'horizontal' %}selected{% endif %}>Horizontal</option>
+                                <option value="vertical" {% if current_card_type == 'vertical' %}selected{% endif %}>Vertical</option>
+                            </select>                            
+                        </div>
                     </div>
                     <div class="col-12 col-md-6 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
@@ -148,5 +155,19 @@
                 window.location.replace(currentUrl);
             }
         })
+
+        $('#card-type-selector').change(function() {
+            var currentUrl = new URL(window.location);
+            var selectedVal = $(this).val();
+
+            if (selectedVal != "all") {
+                currentUrl.searchParams.set("card_type", selectedVal);
+            } else {
+                currentUrl.searchParams.delete("card_type");
+            }
+
+            window.location.replace(currentUrl);
+        });
     </script>
+    
 {% endblock %}

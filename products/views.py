@@ -20,22 +20,28 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
+        else:
+            sortkey = None
+
         if sortkey == 'name':
             sortkey = 'lower_name'
             products = products.annotate(lower_name=Lower('name'))
         if sortkey == 'category':
             sortkey = 'category__name'
+
         if 'direction' in request.GET:
             direction = request.GET['direction']
-            if direction == 'desc':
+            if direction == 'desc' and sortkey:
                 sortkey = f'-{sortkey}'
-        products = products.order_by(sortkey)
+
+        if sortkey:
+            products = products.order_by(sortkey)
 
         if 'card_type' in request.GET:
             card_type = request.GET['card_type']
         if card_type in ['horizontal', 'vertical']:
             products = products.filter(card_type=card_type)
-        
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
@@ -57,7 +63,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
-        'current_card_type': card_type,   
+        'current_card_type': card_type,
     }
 
     return render(request, 'products/products.html', context)

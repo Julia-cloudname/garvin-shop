@@ -34,6 +34,10 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
+    if quantity > 300:
+        messages.error(request, f'Error removing ha ha ha')
+        return HttpResponse(status=500)
+
     if quantity > 0:
         bag[item_id] = quantity
         messages.success(request, f'Updated {product.name} quantity to {quantity}')

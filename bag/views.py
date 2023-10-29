@@ -17,8 +17,8 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
-    if quantity > 300:
-        quantity = 300
+    if quantity > 1000:
+        quantity = 1000
 
     elif quantity <= 0:
         quantity = 1    
@@ -40,7 +40,7 @@ def adjust_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
-    if quantity > 300:
+    if quantity > 1000:
         messages.error(request, f'Error removing ha ha ha')
         return HttpResponse(status=500)
 

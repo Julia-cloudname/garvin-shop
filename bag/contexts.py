@@ -5,7 +5,7 @@ from products.models import Product
 
 def calculate_price_based_on_quantity(quantity, base_price):
     discount = Decimal(0)   # Задаем начальное значение discount как Decimal
-    if 0 <= quantity <= 9:
+    if 0 <= quantity <= 10:
         discount = Decimal(0)
     elif 10 <= quantity <= 59:
         discount = base_price * Decimal(0.25)   # Преобразуем 0.25 в Decimal

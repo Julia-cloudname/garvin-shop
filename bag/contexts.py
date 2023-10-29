@@ -8,7 +8,7 @@ def calculate_price_based_on_quantity(quantity, base_price):
     if 1 <= quantity < 10:
         discount = Decimal(0)
     elif 10 <= quantity < 60:
-        discount = base_price * Decimal(0.25)
+        discount = base_price * Decimal(0.25) 
     elif 60 <= quantity < 180:
         discount = base_price * Decimal(0.36)
     elif 180 <= quantity < 300:

@@ -3,40 +3,44 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+def calculate_price_based_on_quantity(quantity):
+    if 0 <= quantity <= 9:
+        return 47
+    elif 10 <= quantity <= 59:
+        return 35
+    elif 60 <= quantity <= 179:
+        return 30
+    elif 180 <= quantity <= 299:
+        return 23
+    else:
+        return 20
+
 def bag_contents(request):
 
     bag_items = []
-    total = 0
+    grand_total = 0
     product_count = 0
     bag = request.session.get('bag', {})
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
+        
+        adjusted_price = calculate_price_based_on_quantity(quantity)
+        
+        grand_total += quantity * adjusted_price
         product_count += quantity
+        
         bag_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+            'adjusted_price': adjusted_price,
         })
-
-    if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-    else:
-        delivery = 0
-        free_delivery_delta = 0
-    
-    grand_total = delivery + total
     
     context = {
         'bag_items': bag_items,
-        'total': total,
-        'product_count': product_count,
-        'delivery': delivery,
-        'free_delivery_delta': free_delivery_delta,
-        'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'product_count': product_count,
     }
 
     return context

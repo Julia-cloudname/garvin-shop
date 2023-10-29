@@ -17,6 +17,12 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
+    if quantity > 300:
+        quantity = 300
+
+    elif quantity <= 0:
+        quantity = 1    
+
     if item_id in bag.keys():
         bag[item_id] += quantity
         messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')

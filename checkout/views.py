@@ -71,13 +71,14 @@ def checkout(request):
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-    template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        **current_bag,
     }
 
+    template = 'checkout/checkout.html'
     return render(request, template, context)
 
 
@@ -91,12 +92,16 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
+    current_bag = bag_contents(request)
+
     if 'bag' in request.session:
         del request.session['bag']
 
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        **current_bag,
     }
 
     return render(request, template, context)
+

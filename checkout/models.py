@@ -50,15 +50,16 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
+    adjusted_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, editable=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
-        using the adjusted price and update the order total.
+        and update the order total.
         """
-        adjusted_price = calculate_price_based_on_quantity(self.quantity, self.product.price)
-        self.lineitem_total = adjusted_price * self.quantity
+        self.adjusted_price = calculate_price_based_on_quantity(self.quantity, self.product.price)
+        self.lineitem_total = self.adjusted_price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):

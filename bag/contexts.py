@@ -17,6 +17,7 @@ def calculate_price_based_on_quantity(quantity, base_price):
         discount = base_price * Decimal(0.57)
 
     adjusted_price = base_price - discount
+
     return Decimal(round(float(adjusted_price)))
 
 def bag_contents(request):

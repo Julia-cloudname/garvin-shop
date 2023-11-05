@@ -2,8 +2,26 @@ html {
     height: 100%;
 }
 
+/* Main layout container */
+.layout {
+    height: 100%;
+    visibility: inherit;
+    color: #030303;
+}
+
+.wrapper {
+    background-image: url('/media/homepage_background_2.jpeg');
+    background-attachment: scroll;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+  }
+
 body {
-    background: url('/media/homepage_background.jpeg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;

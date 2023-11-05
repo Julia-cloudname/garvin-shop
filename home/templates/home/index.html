@@ -10,19 +10,34 @@
 {% endblock %}
 
 {% block content %}
-<div class="container h-100">
-    <div class="row h-100">
-        <div class="col-7 col-md-6 my-auto">
-            <h1 class="display-4 logo-font text-black">
-                With autor's postcards from GARVIN
-            </h1>
-            <div class="my-5">
-                <h4>
-                    <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Order cards</a>
-                </h4>
+
+<section class="layout">
+    <div class="wrapper">
+        <div class="container_description">
+            <div class="banner">
+                <h1 class="display-4 logo-font text-black">
+                    With autor's postcards from GARVIN
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Order cards</a>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="about">
+        <div class="cont">
+          <div id="about-us-title">
+            <h1>About Us:</h1>
+            <p>Welcome to GARVIN shop! 
+            <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail. Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p>
+          </div>
+        </div>
+      </div>
 {% endblock %}
 

@@ -36,21 +36,18 @@
                     {% for item in wishlist_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            {% if item.product.thumbnail_image %}
-                            <img class="img-fluid rounded" src="{{ item.product.thumbnail_image.url }}" alt="{{ item.product.name }}">
+                            {% if item.thumbnail_image %}
+                            <img class="img-fluid rounded" src="{{ item.thumbnail_image.url }}" alt="{{ item.name }}">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
                             {% endif %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0">${{ item.product.price }}</p>
+                            <p class="my-0">${{ item.price }}</p>
                         </td>
                         <td class="py-3">
-                            <form method="POST" action="{% url 'add_to_bag' item.product.id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-sm btn-primary">Add to Bag</button>
-                            </form>
-                            <a href="{% url 'remove_from_wishlist' item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+                           <!-- add to bag  - product detail-->
+                           
                         </td>
                     </tr>
                     {% endfor %}

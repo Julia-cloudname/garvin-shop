@@ -37,13 +37,13 @@
                     {% for item in wishlist_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            {% if item.thumbnail_image %}
-                                <a href="{% url 'product_detail' item.id %}">
-                                    <img class="card-img-top img-fluid" src="{% if item.thumbnail_image %}{{ item.thumbnail_image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}" alt="{{ product.name }}">
-                                </a>  
-                            {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
-                            {% endif %}
+                            <a href="{% url 'product_detail' item.id %}">
+                                {% if item.thumbnail_image %}
+                                <img class="w-50" src="{{ item.thumbnail_image.url }}" alt="{{ item.name }}">
+                                {% else %}
+                                <img class="w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
+                                {% endif %}
+                            </a>
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.name }}</strong></p>
@@ -64,10 +64,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <a href="{% url 'user_wishlist' item.id %}" class="btn btn-outline-black rounded-0 mt-5">
+                                        <span class="text-uppercase">Remove from wishlist</span>
+                                    </a>
                                     <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
-                            </form>                                  
+                            </form>  
                         </td>
                     </tr>
                     {% endfor %}

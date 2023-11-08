@@ -27,53 +27,53 @@
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col">Product Info</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" class="col-2 col-md-2">Product Info</th>
+                            <th scope="col" class="col-3 col-md-2">Name</th>
+                            <th scope="col" class="col-4 col-md-6">Description</th>
+                            <th scope="col" class="col-3 col-md-2">Price</th>
                         </tr>
                     </thead>
-
+                    <tbody>
                     {% for item in wishlist_items %}
                     <tr>
-                        <td class="p-3 w-25">
+                        <td class="col-8 col-md-2 p-3">
                             <a href="{% url 'product_detail' item.id %}">
+                                <!-- Product image -->
                                 {% if item.thumbnail_image %}
-                                <img class="w-50" src="{{ item.thumbnail_image.url }}" alt="{{ item.name }}">
+                                <img class="img-fluid w-50" src="{{ item.thumbnail_image.url }}" alt="{{ item.name }}">
                                 {% else %}
-                                <img class="w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
+                                <img class="img-fluid w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
                                 {% endif %}
                             </a>
                         </td>
-                        <td class="py-3">
-                            <p class="my-0"><strong>{{ item.name }}</strong></p>
-                            <p class="my-0 small text-muted">SKU: {{ item.sku|upper }}</p>
+                        <td class="col-2 col-md-2">
+                            <!-- Product name and SKU -->
+                            <p><strong>{{ item.name }}</strong></p>
+                            <p class="small text-muted">SKU: {{ item.sku|upper }}</p>
                         </td>
-                        <td class="py-3">
-                            <p class="my-0">${{ item.price}}</p>
-                        </td>
-                        <td class="py-3">
+                        <td class="col-6 col-md-4">
+                            <!-- Product description -->
+                            <p class="text-muted">${{ item.description }}</p>
+                            <!-- Buttons -->
                             <form class="form" action="{% url 'add_to_bag' item.id %}" method="POST">
                                 {% csrf_token %}
-                                <div class="form-row">
-                                    <div class="col-12">
-                                        <div class="form-group w-50">
-                                            <div class="input-group">
-                                                <input type="hidden" class="form-control qty_input" type="number" name="quantity" value="1"
-                                                    min="1" max="1000" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="{% url 'user_wishlist' item.id %}" class="btn btn-outline-black rounded-0 mt-5">
-                                        <span class="text-uppercase">Remove from wishlist</span>
-                                    </a>
-                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                </div>
-                            </form>  
+                                <input type="hidden" class="form-control qty_input" name="quantity" value="1" min="1" max="1000" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
+                                <a href="{% url 'user_wishlist' item.id %}" class="btn btn-outline-black rounded-0">
+                                    <span class="text-uppercase">Remove from wishlist</span>
+                                </a>
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Bag">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </form>
+                            <hr> 
                         </td>
+                        <td class="col-3 col-md-3">
+                            <!-- Product price -->
+                            <p>${{ item.price }}</p>
+                        </td>
+                        
                     </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
             </div>
             {% else %}

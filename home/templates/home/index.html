@@ -37,7 +37,27 @@
             <p>Welcome to GARVIN shop! 
             <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail. Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p>
           </div>
+        </div>  
+    </div>
+</div>
+
+<!-- Section for Reviews -->
+<section class="reviews-section">
+    <div class="container">
+        <h2>Latest Reviews</h2>
+        <div class="row">
+            {% for review in latest_reviews %}
+                <div class="col-md-3">
+                    <div class="review">
+                        <h5>{{ review.user.username }}</h5>
+                        <p>{{ review.content }}</p>
+                        <small>{{ review.created_at }}</small>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-      </div>
+    </div>
+</section>
+    
 {% endblock %}
 

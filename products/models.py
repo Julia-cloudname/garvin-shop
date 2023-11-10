@@ -50,7 +50,7 @@ class ProductImage(models.Model):
 class Review(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    content = models.TextField()
+    content = models.CharField(max_length=300) 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

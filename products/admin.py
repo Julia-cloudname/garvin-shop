@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, ProductImage, Category
+from .models import Product, ProductImage, Category, Review
 
 
 class ProductImageInline(admin.TabularInline):
@@ -16,6 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
         'price',
         'rating',
         'card_type',
+
     )
 
     ordering = ('sku',)
@@ -31,3 +32,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('product', 'user', 'content', 'created_at')
+    list_filter = ('product', 'user', 'created_at')
+    search_fields = ('content', 'product__name', 'user__username')
+    readonly_fields = ('created_at',)
+
+admin.site.register(Review, ReviewAdmin)

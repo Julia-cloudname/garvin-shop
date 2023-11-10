@@ -18,7 +18,7 @@ def add_to_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if product.users_wishlist.filter(id=request.user.id).exists():
         product.users_wishlist.remove(request.user)
-        messages.error(request, f'Removed {product.name} from your Wishlist')
+        messages.error(request, f'{product.name} has been removed from your Wishlist')
     else:
         product.users_wishlist.add(request.user)
         messages.success(request, f'Added {product.name} to your Wishlist')

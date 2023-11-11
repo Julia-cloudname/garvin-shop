@@ -10,3 +10,7 @@ def index(request):
 def contact(request):
     """ A view to return the contact page """
     return render(request, 'home/contact.html')
+
+def special_offers(request):
+    """ A view to return the special offers page """
+    return render(request, 'home/special_offers.html')

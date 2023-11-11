@@ -6,3 +6,7 @@ def index(request):
 
     latest_reviews = Review.objects.order_by('-created_at')[:4]
     return render(request, 'home/index.html', {'latest_reviews': latest_reviews})
+
+def contact(request):
+    """ A view to return the contact page """
+    return render(request, 'home/contact.html')

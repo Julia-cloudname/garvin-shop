@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Contact Information -->
+<section class="contact-info-section">
+    <div class="container">
+        <h2>Contact Information</h2>
+        <p>Phone: (093)8520908</p>
+        <p>Email: garvin.pp.ua@gmail.com</p>
+    </div>
+</section>
+
+<!-- Retail Stores Information -->
+<section class="retail-stores-section">
+    <div class="container">
+        <h2>Our Retail Stores</h2>
+        <p>In this section, you can find a list of retail stores where you can directly purchase our postcards individually.</p>
+        <p><strong>Boryspil</strong><br>
+        Kyivs'kyi Shliakh Street, 2/6, Aeromall, Fuji Photolab<br>
+        <a href="#">Go there</a></p>
+        <p>Here you can order and buy cool author's postcards that you will gift to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail.</p>
+        <p>Funny and stylish Ukrainian-language postcards for New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="contact-form-section">
+    <div class="container">
+        <h2>Get in Touch</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

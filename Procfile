@@ -1,1 +1,1 @@
-web: gunicorn garvin.wsgi:application
+web: gunicorn garvin_shop.wsgi:application

@@ -11,8 +11,10 @@
 {% endblock %}
 
 {% block content %}
+<!-- Main content area starts here -->
 <div class="overlay"></div>
 <div class="container mb-2">
+     <!-- Shopping Bag Header -->
     <div class="row">
         <div class="col">
             <hr>
@@ -23,7 +25,9 @@
 <!-- Bag items description -->
     <div class="bag-item row">
         <div class="col">
+             <!-- Condition to check if there are items in the shopping bag -->
             {% if bag_items %}
+            <!-- Responsive table for displaying bag items -->
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
@@ -36,9 +40,10 @@
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
-
+                    <!-- Iterating over each bag item -->
                     {% for item in bag_items %}
                     <tr>
+                        <!-- Product image and details -->
                         <td class="p-3 w-25">
                             {% if item.product.thumbnail_image %}
                             <img class="img-fluid rounded" src="{{ item.product.thumbnail_image.url }}" alt="{{ item.product.name }}">
@@ -133,7 +138,7 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-
+<!-- JavaScript for interactive elements -->
 <script type="text/javascript">
     $(document).ready(function () {
         // Update quantity on click

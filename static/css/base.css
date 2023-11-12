@@ -11,7 +11,7 @@ html {
 .dropdown-item,
 .navbar-nav .nav-link.active,
 .card-title,
-#about-us-section h1, 
+#about-us-section h2, 
 .input-group>.input-group-append>.btn, 
 .navbar-nav .nav-link  
 {
@@ -52,7 +52,7 @@ html {
 
 /* Inner-banner */
 .inner-banner {
-    background-color: #333232c4;
+    background-color: #252323db;
     padding: 2rem;  
     text-align: center;  
     border-radius: 10px;  
@@ -240,7 +240,7 @@ input[name='q']::placeholder {
     padding: 2rem 0; 
 } */
 
-#about-us-section h1 {
+#about-us-section h2 {
     font-size: 2rem; 
     margin-bottom: 1rem; 
 }
@@ -257,6 +257,7 @@ input[name='q']::placeholder {
     font-size: 1rem; 
     line-height: 1.5; 
 }
+
 /* Styles for the product preview section */
 .products-preview-section {
     padding: 2rem 0;
@@ -593,11 +594,25 @@ footer a:hover {
     border-bottom: none;
 }
 
+/* Signup page */
+
+.signup {
+    padding: 20%;  
+    text-align: center;  
+}
+
+.sigout {
+    padding: 30%;  
+}
 @media (max-width: 768px) {
     footer .col-md-6 {
         text-align: center;
         margin-bottom: 0.5rem;
     }
+}
+
+.offers {
+    padding-top: 15%;
 }
 
 /* fixed top navbar only on medium and up */

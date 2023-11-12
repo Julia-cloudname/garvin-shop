@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block meta_description %}Explore a diverse range of creative and unique postcards at GARVIN Cards. Find the perfect card for every occasion, from birthdays to holidays.{% endblock %}
+{% block extra_title %} Wide Range of Unique Postcards{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -14,7 +17,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font">Products</h2>
+                <h1 class="logo-font">Garvin's shop cards</h1>
                 {% for c in current_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>

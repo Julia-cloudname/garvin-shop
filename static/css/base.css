@@ -526,6 +526,73 @@ footer a:hover {
     color: #333;
 }
 
+/* wishlist */
+.wishlist {
+    padding: 10%;
+}
+
+
+/* Bag items style */
+.bag-item {
+    border: 1px solid #ddd;  
+    background-color: #f8f8f8;  
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  
+    margin-bottom: 20px;  
+    border-radius: 5px; 
+    padding: 13%; 
+}
+
+.bag-item .table {
+    margin-bottom: 0;  
+}
+
+.bag-item .update-link, 
+.bag-item .remove-item {
+    font-weight: bold;  
+    color: #0056b3;  
+}
+
+ 
+.bag-item .update-link:hover, 
+.bag-item .remove-item:hover {
+    color: #003d82;  
+    text-decoration: underline;  
+}
+
+ 
+.bag-item h2.logo-font {
+    color: #333;  
+    text-align: center;  
+    margin-bottom: 20px;  
+}
+
+.bag-item .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+}
+
+.bag-item .table td {
+    border-bottom: 1px solid #ddd;  
+    padding: 10px;  
+    vertical-align: middle;  
+}
+
+.bag-item .table th {
+    border-bottom: 2px solid #333;  
+    padding: 10px;  
+    background-color: #f8f8f8;  
+    text-align: left;  
+}
+
+.bag-item .table td:last-child {
+    text-align: right;  
+}
+
+.bag-item .table tr:last-child td {
+    border-bottom: none;
+}
+
 @media (max-width: 768px) {
     footer .col-md-6 {
         text-align: center;
@@ -544,7 +611,7 @@ footer a:hover {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 130px;
     }
     
 }

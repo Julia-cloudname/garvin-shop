@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="wishlist row">
         <div class="col">
             {% if wishlist_items %}
             <div class="table-responsive rounded">
@@ -58,10 +58,10 @@
                             <form class="form" action="{% url 'add_to_bag' item.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" class="form-control qty_input" name="quantity" value="1" min="1" max="1000" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
-                                <a href="{% url 'user_wishlist' item.id %}" class="btn btn-outline-black rounded-0">
+                                <a href="{% url 'user_wishlist' item.id %}" class="btn btn-primary rounded-0">
                                     <span class="text-uppercase">Remove from wishlist</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Bag">
+                                <input type="submit" class="btn btn-primary rounded-0 text-uppercase" value="Add to Bag">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                             <hr> 

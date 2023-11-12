@@ -23,6 +23,32 @@
     </div>
 </section>
 
+<!-- Products Section -->
+<section id="products-preview-section" class="products-preview-section">
+    <div class="container">
+        <h2 class="logo-font">Featured Products</h2>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-2 col-sm-4">
+                    <div class="product">
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">${{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'products' %}" class="btn btn-primary">View More Products</a>
+        </div>
+    </div>
+</section>
+
+
 <!-- About us -->
 <div id="about-us-section" class="container-fluid">
     <div class="row">
@@ -45,7 +71,7 @@
         <div class="row">
             {% for review in latest_reviews %}
                 <div class="col-md-3">
-                    <div class="review">
+                    <div class="review-item">
                         <h5>{{ review.user.username }}</h5>
                         <p>{{ review.content }}</p>
                         <small>{{ review.created_at }}</small>
@@ -55,6 +81,8 @@
         </div>
     </div>
 </section>
+
+
     
 {% endblock %}
 

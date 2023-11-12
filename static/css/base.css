@@ -2,11 +2,20 @@ html {
     height: 100%;
 }
 
-/* Main layout container */
-.layout {
-    height: 100%;
-    visibility: inherit;
-    color: #030303;
+/* Elements */
+.logo-font,
+.navbar-brand,
+.nav-link,
+.nav-item,
+.dropdown,
+.dropdown-item,
+.navbar-nav .nav-link.active,
+.card-title,
+#about-us-section h1, 
+.input-group>.input-group-append>.btn, 
+.navbar-nav .nav-link  
+{
+    color: #555;  
 }
 
 /* Banner */
@@ -85,23 +94,6 @@ body {
     width: fit-content;
 }
 
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    /* use important to override link colors for <a> elements */
-    border: 1px solid black;
-}
 
 .shop-now-button:hover,
 .shop-now-button:active,
@@ -114,15 +106,15 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: #555!important;
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid #555!important;
 }
 
 .bg-black {
-    background: #000 !important;
+    background: #555!important;
 }
 
 .overlay {
@@ -136,7 +128,7 @@ body {
 }
 
 a.category-badge>span.badge:hover {
-    background: #212529 !important;
+    background: #555 !important;
     color: #fff !important;
 }
 
@@ -157,6 +149,18 @@ a.category-badge>span.badge:hover {
 input[name='q']::placeholder {
     color: #aab7c4;
 }
+
+.btn-primary {
+    background-color:  #555; 
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    color: white;
+}
+
 
 /* ------------------------------- bootstrap toasts */
 
@@ -181,7 +185,7 @@ input[name='q']::placeholder {
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid #555; 
     position: absolute;
     top: -10px;
     right: 36px;
@@ -232,6 +236,11 @@ input[name='q']::placeholder {
     background-color: #f8f8f8; 
 }
 
+#about-us-section h1 {
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+}
+
 #about-us-section .about {
     max-width: 855px; 
     margin: auto; 
@@ -239,16 +248,124 @@ input[name='q']::placeholder {
     text-align: center; 
 }
 
-#about-us-section h1 {
-    color: #030303; 
-    font-size: 2rem; 
-    margin-bottom: 1rem; 
-}
-
 #about-us-section p {
     color: #555; 
     font-size: 1rem; 
     line-height: 1.5; 
+}
+/* Styles for the product preview section */
+.products-preview-section {
+    padding: 2rem 0;
+    background-color: #f8f8f8; 
+}
+.products-preview-section h2 {
+    text-align: center;  
+}
+
+
+.products-preview-section .product {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.products-preview-section .product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover; 
+}
+
+.products-preview-section .product .card-body {
+    padding: 0.5rem; 
+}
+
+
+.products-preview-section .product .card-title,
+.products-preview-section .product .card-text {
+    font-size: 0.9rem; 
+    color: #555; 
+}
+
+.products-preview-section .product .card-title {
+    margin-bottom: 0.5rem;
+}
+
+/* Container for all reviews */
+.reviews-container {
+    max-width: 800px;  
+    margin: auto;
+    padding: 1rem;
+    background-color: #f8f8f8;  
+    border-radius: 10px;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+}
+
+/* Individual review item */
+.review-item {
+    border-bottom: 1px solid #ddd; 
+    padding: 1rem;
+    text-align: center; 
+}
+
+.review-item:last-child {
+    border-bottom: none;  
+}
+
+.review-item h5 {
+    color: #333;  
+    margin-bottom: 0.5rem;
+}
+
+.review-item p {
+    color: #555;  
+    font-size: 0.9rem; 
+    font-style: italic; 
+}
+
+.review-item small {
+    color: #777;  
+    display: block;  
+    margin-top: 0.5rem;
+}
+
+/* Styles for the reviews section on the main page */
+.reviews-section {
+    padding: 2rem 0; 
+}
+
+.reviews-section .row {
+    margin: 0;  
+}
+
+.reviews-section h2 {
+    text-align: center;  
+    margin-bottom: 1rem;  
+}
+
+
+.reviews-section .review-item {
+    background-color: #f8f8f8;  
+    padding: 1rem;  
+    margin-bottom: 1rem;  
+    border: 1px solid #ddd;  
+    border-radius: 5px;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    height: 100%;  
+}
+
+.reviews-section .review-item h5 {
+    margin-bottom: 0.5rem;  
+}
+
+.reviews-section .review-item p {
+    font-size: 0.9rem;  
+    color: #555;  
+    margin-bottom: 0.5rem;  
+}
+
+.reviews-section .review-item small {
+    font-size: 0.8rem;  
+    color: #777;  
 }
 
 
@@ -272,7 +389,7 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content input {
-    border-color: #000;
+    border-color: #555; 
     border-radius: 0;
 }
 
@@ -296,8 +413,8 @@ input[name='q']::placeholder {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: #555; 
+    border: 1px solid #555; 
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -375,6 +492,11 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 768px) {
+
+    .reviews-section .review-item {
+        margin-bottom: 1rem;  
+    }
+
     .banner {
         padding: 2rem 0;
         height: auto;  
@@ -395,5 +517,8 @@ input[name='q']::placeholder {
     #about-us-section .about {
         max-width: 100%; 
         padding: 1rem; 
+    }
+    .products-preview-section .product {
+        margin-bottom: 1rem;
     }
 }

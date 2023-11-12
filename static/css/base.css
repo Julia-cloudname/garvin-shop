@@ -46,7 +46,7 @@ html {
     margin: auto;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
 }
- 
+
 .inner-banner h1 {
     color: #efe7e7; 
 }
@@ -226,6 +226,31 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
+/* About us section */
+#about-us-section {
+    padding: 2rem 0; 
+    background-color: #f8f8f8; 
+}
+
+#about-us-section .about {
+    max-width: 855px; 
+    margin: auto; 
+    padding: 1rem; 
+    text-align: center; 
+}
+
+#about-us-section h1 {
+    color: #030303; 
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+}
+
+#about-us-section p {
+    color: #555; 
+    font-size: 1rem; 
+    line-height: 1.5; 
+}
+
 
 /* -------------------------------- Media Queries */
 
@@ -234,6 +259,7 @@ input[name='q']::placeholder {
     .container {
         max-width: 80%;
     }
+    
 }
 
 /* Allauth form formatting */
@@ -334,6 +360,7 @@ input[name='q']::placeholder {
     .header-container {
         padding-top: 164px;
     }
+    
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -344,5 +371,29 @@ input[name='q']::placeholder {
 
     body {
         height: calc(100vh - 116px);
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 2rem 0;
+        height: auto;  
+    }
+
+    .inner-banner {
+        padding: 1rem;
+        max-width: 100%;  
+    }
+
+    .banner-content h1 {
+        font-size: 1.5rem;  
+    }
+
+    .banner-content p {
+        font-size: 1rem;  
+    }
+    #about-us-section .about {
+        max-width: 100%; 
+        padding: 1rem; 
     }
 }

@@ -15,12 +15,10 @@ The Marisol Furniture website serves as a portfolio and blog platform designed f
     * [Agile Methodology](#agile-methodology)
     * [The Scope](#the-scope)
  - [**Design**](#design)
-    * [Bootstrap Templates Styling](#bootstrap-templates-styling)
-    * [Colours](#colours)
+    * [Styling and Aesthetics](#styling-and-aesthetics)
+    * [Color Scheme](#colour-scheme)
     * [Typography](#typography)
-    * [Media](#media)
     * [Wireframes](#wireframes)
-    * [Database Schema](#database-schema)
  - [**Features**](#features)
    * [Navigation](#navigation)
    * [Footer](#footer)
@@ -100,4 +98,167 @@ To help define the functionalities and prioritise key features, these 'User Stor
 
 <hr>
 
+## DESIGN
 
+### Styling and Aesthetics
+The Garvin Card Shop website is designed with a focus on user experience and visual appeal. Utilizing modern CSS practices, the site offers a clean, intuitive interface.
+
+### Color Scheme
+The color palette is dominated by shades of gray (#555 for main text and buttons, #333 for hover effects), creating a professional and elegant look. White text on darker backgrounds ensures high readability and a contemporary feel.
+
+### Typography
+"Lato" font is used throughout the site, providing a modern and clean appearance. The font style and sizes are carefully chosen to ensure readability and visual harmony.
+
+### Wireframes
+
+Wireframes for pages are linked here:
+
+![Main page](/media/wareframe.png)
+
+## **FEATURES**
+
+### **Navigation**
+
+#### **Desktop Navigation**
+- The Garvin Card Shop website offers a clear and user-friendly navigation menu, including links to 'Home', 'Products', 'Special Offers', 'Contact Us', and 'About Us'.
+- For registered users, the menu includes additional options like 'Profile' for account management and a 'Log Out' option.
+- Unregistered users see a 'Register' option to encourage account creation and access to more features.
+
+![Navigation](/media/all-cards.png)
+
+#### **Mobile Navigation**
+- The mobile version features a responsive burger menu for easier navigation on smaller screens.
+- Tapping the burger icon reveals the same essential links as on the desktop version, maintaining a consistent user experience across devices.
+
+### **Footer**
+- The footer includes social media links and additional information about Garvin Card Shop.
+- Users can connect with the shop on platforms like Facebook, Instagram, and Twitter.
+
+![Footer](/media/footer.png)
+
+### **Home Page**
+- Features a banner promoting the latest card collections and special offers.
+- A 'Featured Products' section showcases select items, encouraging users to explore more.
+
+### **Products Page**
+- Displays a variety of cards for different occasions. Each product has a thumbnail image and a brief description.
+- Users can click on a product to view more details and purchase options.
+
+![Products](/media/all-products.png)
+
+### **Special Offers Page**
+- Highlights current promotions and discounts.
+- This section is updated regularly to showcase the latest deals.
+
+### **Contact Us Page**
+- Provides a contact form for user inquiries.
+- Includes essential contact information like email and phone number.
+
+### **About Us**
+- Details about Garvin Card Shop.
+- Provides background information about the shop and its unique selling points.
+
+### **Profile Page (For Registered Users)**
+- Displays user information and order history.
+- Allows users to manage their account details.
+
+### **Wishlist Page**
+- Registered users can add products to their wishlist for future reference.
+
+### **Administrative Panel (For Admin Users)**
+- Admins can manage product listings, user accounts, and view sales data.
+- The panel allows for adding, editing, and removing products.
+
+### **Signup Page**
+- New users can sign up easily through a user-friendly registration form.
+
+### **Login/Logout Functionality**
+- Allows users to securely access their accounts and manage their shopping activities.
+
+### **Reviews**
+- Allows users to share their expirience 
+
+![Reviews](/media/reviews.png)
+<hr>
+
+## **Testing**
+
+[TESTING DETAILS](TESTING.md)
+
+<hr>
+
+## **TECHNOLOGIES USED**
+
+### Languages and Libraries used:
+
+- HTML
+- CSS3
+- Javascript
+- Python
+- Django
+
+### Libraries and Programs Used
+
+- [Gitpod](https://www.gitpod.io/)<br>
+   Used for version control alongside GitHub.
+- [GitHub](https://github.com/)<br>
+   Used to store the project and utilise git version control.
+- [Heroku](https://id.heroku.com)<br>
+   Used to deploy project.
+- [AWS](https://aws.amazon.com/)<br>
+   Cloud based storage, used for storing any media submitted by users.
+- [ElephantSQL](https://www.elephantsql.com/)<br>
+   Used to host the PostgreSQL database.
+- [SQLite3](https://www.sqlite.org/index.html)<br>
+   Used to host the SQLite3 database.
+- [W3C - HTML](https://validator.w3.org/)<br>
+   Used to validate all HTML code.
+- [W3C - CSS](https://jigsaw.w3.org/css-validator/)<br>
+   Used to validate all CSS code.
+- [CI PEP8 Testing](https://pep8ci.herokuapp.com/)<br>
+   Used to validate all Python code.
+- [Google Fonts](https://fonts.google.com/)<br>
+   Used to provide the font styling.
+- [Bootstrap](https://getbootstrap.com/)<br>
+   Used to for helping with the HTML design and layout.
+- [Fontawesome](https://fontawesome.com/)<br>
+   Used to implement effective icons.
+- [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/)<br>
+   Used during the development to debug and test responsiveness.
+- [marvelapp](https://marvelapp.com)<br>
+   Used for creation wireframes.
+  
+<hr>
+
+## **DEPLOYMENT**
+
+### ** Create Github Repository **
+- Log in to your Github account.
+- Navigate to repositories and select 'New'.
+- Select the 'Code Institute' template from the 'Repository Template' menu.
+- Give your repository a name and select 'Create Repository'.
+- When the repository has been created select 'Gitpod' to open a new workspace.
+
+### ** Heroku **
+- Log in to your Heroku account [Heroku](https://id.heroku.com).
+- From the home page select 'New', then select 'Create New App' from the drop-down.
+- Provide a name for your app and selectyour regrion.
+- Add 3 new keys along with your relevant value information: 'SECRET_KEY', 'DATABASE_URL' and 'ClOUDINARY_URL'. 
+- At the top of the page select the 'Deploy' tab.
+- For the preferred deployment method select 'Github'.
+- Search for your repository name and connect.
+- Additionally, automatic deploys can be enabled for deployment after each push to Github.
+
+### ** Fork this project **
+- Sign in to Github and go to my [repository](https://github.com/Julia-cloudname/garvin-shop-v1)
+- At the top of the page select 'Fork'.
+- The Fork will now be added to your repositories.
+
+### ** Clone this project **
+- Sign in to Github and go to my [repository](https://github.com/Julia-cloudname/garvin-shop-v1)
+- Select the green 'Code' button.
+- Select from one of the cloning options HTTPS, SSH or Github CLI. Click the clipboard icon to copy the URL.
+- Open git bash
+- Enter ‘git clone’ into the text box and then paste the respository URL and select enter. 
+
+For more information on cloning please read the github documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)

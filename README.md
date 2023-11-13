@@ -197,6 +197,7 @@ Wireframes for pages are linked here:
 - Python
 - Django
 
+
 ### Libraries and Programs Used
 
 - [Gitpod](https://www.gitpod.io/)<br>
@@ -230,6 +231,8 @@ Wireframes for pages are linked here:
   
 <hr>
 
+
+
 ## **DEPLOYMENT**
 
 ### ** Create Github Repository **
@@ -262,3 +265,7 @@ Wireframes for pages are linked here:
 - Enter ‘git clone’ into the text box and then paste the respository URL and select enter. 
 
 For more information on cloning please read the github documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+## **CREDITS**
+
+The images of products sourced from http://garvin.pp.ua. 

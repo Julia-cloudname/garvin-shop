@@ -128,21 +128,21 @@ WSGI_APPLICATION = 'garvin_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# if 'DATABASE_URL' in os.environ:
-#     DATABASES = {
-#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#     }
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         }
-#     }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
-DATABASES = {
-     'default': dj_database_url.parse('postgres://uzxvipur:ch7MFFuXzUAQ9vCJ_X8APsl8QsTsnkRs@flora.db.elephantsql.com/uzxvipur')
-} 
+# DATABASES = {
+#      'default': dj_database_url.parse('postgres://uzxvipur:ch7MFFuXzUAQ9vCJ_X8APsl8QsTsnkRs@flora.db.elephantsql.com/uzxvipur')
+# } 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -15,3 +15,6 @@ def contact(request):
 def special_offers(request):
     """ A view to return the special offers page """
     return render(request, 'home/special_offers.html')
+
+def my_custom_page_not_found_view(request, exception):
+    return render(request, '404.html', {}, status=404)

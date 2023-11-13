@@ -1,0 +1,4 @@
+User-agent:*
+Disallow:/accounts/
+Disallow:/bag/
+Sitemap: https://garvin-df2eed558b96.herokuapp.com/sitemap.xml

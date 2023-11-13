@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com']
 
 
 # Application definition

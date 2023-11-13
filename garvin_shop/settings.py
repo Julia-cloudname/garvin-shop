@@ -140,9 +140,6 @@ else:
         }
     }
 
-# DATABASES = {
-#      'default': dj_database_url.parse('postgres://uzxvipur:ch7MFFuXzUAQ9vCJ_X8APsl8QsTsnkRs@flora.db.elephantsql.com/uzxvipur')
-# } 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -22,12 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "f4+i&6s3g+iiofyisj2_og96qhczcv9yd)rep$i!)j(@rjq$w-"
-# os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# 'DEVELOPMENT' in os.environ
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com/']

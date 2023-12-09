@@ -14,7 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'price',
-        'total_rating',
+        'rating',
         'card_type',
     )
 
@@ -34,7 +34,7 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('product', 'user', 'rating', 'content', 'created_at') 
+    list_display = ('product', 'user', 'user_rating', 'content', 'created_at') 
     list_filter = ('product', 'user', 'created_at')
     search_fields = ('content', 'product__name', 'user__username')
     readonly_fields = ('created_at',)

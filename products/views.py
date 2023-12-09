@@ -9,7 +9,7 @@ from .forms import ProductForm, ReviewForm
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-
+    
     products = Product.objects.all()
     query = None
     categories = None
@@ -18,35 +18,15 @@ def all_products(request):
     card_type = None
 
     if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-        else:
-            sortkey = None
-
-        if sortkey == 'name':
-            sortkey = 'lower_name'
-            products = products.annotate(lower_name=Lower('name'))
-        if sortkey == 'category':
-            sortkey = 'category__name'
-
-        if 'direction' in request.GET:
-            direction = request.GET['direction']
-            if direction == 'desc' and sortkey:
-                sortkey = f'-{sortkey}'
-
-        if sortkey:
-            products = products.order_by(sortkey)
-
-        if 'card_type' in request.GET:
-            card_type = request.GET['card_type']
-        if card_type in ['horizontal', 'vertical']:
-            products = products.filter(card_type=card_type)
-
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+
+        if 'card_type' in request.GET:
+            card_type = request.GET['card_type']
+            if card_type in ['horizontal', 'vertical']:
+                products = products.filter(card_type=card_type)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -56,6 +36,20 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            direction = request.GET['direction'] if 'direction' in request.GET else ''
+
+            if sortkey == 'rating':
+                sortkey = '-rating' if direction == 'desc' else 'rating'
+            elif sortkey == 'name':
+                sortkey = '-lower_name' if direction == 'desc' else 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            elif sortkey == 'category':
+                sortkey = '-category__name' if direction == 'desc' else 'category__name'
+
+            products = products.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
 

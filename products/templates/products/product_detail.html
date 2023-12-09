@@ -41,8 +41,8 @@
                     </a>
                 </p>
                 {% endif %}
-                {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                {% if product.total_rating %}
+                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.total_rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -101,17 +101,18 @@
     </div>
 
     <!-- Review Section -->
-    <div class="reviews-container my-5">
-        {% for review in reviews %}
-        <div class="review-item">
-            <h5>{{ review.user.username }}</h5>
-            <p>{{ review.content }}</p>
-            <small>{{ review.created_at }}</small>
-        </div>
-        {% endfor %}
+<div class="reviews-container my-5">
+    {% for review in reviews %}
+    <div class="review-item">
+        <h5>{{ review.user.username }}</h5>
+        <p>{{ review.content }}</p>
+        <p>Rating: {{ review.rating }} / 5</p>
+        <small>{{ review.created_at }}</small>
     </div>
+    {% endfor %}
+</div>
 
-
+<!-- Submit Review Section -->
     {% if request.user.is_authenticated %}
     <div class="row">
         <div class="col-12">
@@ -119,6 +120,8 @@
                 <h3>Write a Review</h3>
                 <form method="post" action="{% url 'add_review' product.id %}">
                     {% csrf_token %}
+                    <label for="content">Your Rating:</label>
+                    {{ review_form.rating }}  
                     <div class="form-group">
                         <label for="content">Your Review:</label>
                         <textarea class="form-control" id="content" name="content" rows="5" required></textarea>

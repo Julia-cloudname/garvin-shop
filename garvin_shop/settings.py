@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 
+if os.path.isfile("env.py"):
+   import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,13 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com']
+ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', '8000-juliacloudn-garvinshopv-fy9qhyeqbgp.ws-eu106.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-boptst882t4.ws-eu106.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com', 'https://8000-juliacloudn-garvinshopv-fy9qhyeqbgp.ws-eu106.gitpod.io']
 
 
 # Application definition
@@ -138,7 +141,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

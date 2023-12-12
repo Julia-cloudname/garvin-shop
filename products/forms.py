@@ -25,8 +25,5 @@ class ProductForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['content', 'user_rating']
-        widgets = {
-            'user_rating': forms.Select(choices=[(i, str(i)) for i in range(1, 6)])
-        }
+        fields = ['content']
 

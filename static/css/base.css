@@ -534,9 +534,10 @@ footer a:hover {
 
 /* wishlist */
 .wishlist-page {
-    max-width: 800px;
+    max-width: 100%;  
     margin: 0 auto;
     padding: 20px;
+    padding-top: 120px;  
 }
 
 .wishlist-page h1 {
@@ -545,14 +546,22 @@ footer a:hover {
 }
 
 .wishlist-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 80%;  
+    margin: auto;  
 }
 
 .wishlist-table thead {
     background-color: #eee;
 }
 
+.wishlist-table thead th {
+    white-space: nowrap; 
+    font-size: 14px; 
+}
+
+.wishlist-table tbody td {
+    vertical-align: middle; 
+}
 .wishlist-table th,
 .wishlist-table td {
     text-align: left;
@@ -561,11 +570,21 @@ footer a:hover {
 }
 
 .wishlist-image {
-    width: 80px;
-    height: 80px;
+    height: 100px;
     margin-right: 10px;
     float: left;
+    display: block;
 }
+
+.product-link {
+    color: #333;  
+    text-decoration: none;  
+}
+
+.product-link:hover {
+    text-decoration: underline; 
+}
+
 
 .item-details {
     display: inline-block;

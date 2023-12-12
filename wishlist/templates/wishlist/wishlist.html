@@ -9,6 +9,7 @@
             <thead>
                 <tr>
                     <th>Item</th>
+                    <th>Description</th>
                     <th>Unit Price</th>
                     <th>Rating</th>
                     <th>Date Added</th>
@@ -19,9 +20,12 @@
                 {% for item in wishlist_items %}
                 <tr>
                     <td>
+                        <a href="{% url 'product_detail' item.product.id %}" class="product-link">
                         <img src="{{ item.product.thumbnail_image.url }}" alt="{{ item.product.name }}" class="wishlist-image">
+                    </td>
+                    <td>
                         <div class="item-details">
-                            <h2>{{ item.product.name }}</h2>
+                            <a href="{% url 'product_detail' item.product.id %}" class="product-link">{{ item.product.name }}</a>
                             <p>{{ item.product.description }}</p>
                         </div>
                     </td>

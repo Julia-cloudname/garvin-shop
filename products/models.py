@@ -36,25 +36,6 @@ class Product(models.Model):
         choices=CARD_TYPES,
         default='vertical',
     )
-    users_wishlist = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="users_wishlist", blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def average_rating(self):
-        reviews = self.reviews.all()
-        if reviews:
-            rating_sum = sum([review.user_rating for review in reviews])
-            average = rating_sum / len(reviews)
-            self.rating = average
-            self.save()
-            return average
-        else:
-            self.rating = 0
-            self.save()
-            return 0
-    #wishlist
-    users_wishlist = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="users_wishlist", blank=True)
 
     def __str__(self):
         return self.name
@@ -69,10 +50,7 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.CharField(max_length=300) 
     created_at = models.DateTimeField(auto_now_add=True)
-    user_rating = models.IntegerField(
-        default=0,
-        choices=[(i, str(i)) for i in range(1, 6)]
-    )
+    
 
     def __str__(self):
         return f'Review by {self.user} on {self.product}'

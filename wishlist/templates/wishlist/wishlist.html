@@ -1,87 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
-<div class="overlay"></div>
-<div class="container mb-2">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">My Wishlist</h2>
-            <hr>
-        </div>
-    </div>
-
-    <div class="wishlist row">
-        <div class="col">
-            {% if wishlist_items %}
-            <div class="table-responsive rounded">
-                <table class="table table-sm table-borderless">
-                    <thead class="text-black">
-                        <tr>
-                            <th scope="col" class="col-2 col-md-2">Product Info</th>
-                            <th scope="col" class="col-3 col-md-2">Name</th>
-                            <th scope="col" class="col-4 col-md-6">Description</th>
-                            <th scope="col" class="col-3 col-md-2">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in wishlist_items %}
-                    <tr>
-                        <td class="col-8 col-md-2 p-3">
-                            <a href="{% url 'product_detail' item.id %}">
-                                <!-- Product image -->
-                                {% if item.thumbnail_image %}
-                                <img class="img-fluid w-50" src="{{ item.thumbnail_image.url }}" alt="{{ item.name }}">
-                                {% else %}
-                                <img class="img-fluid w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
-                                {% endif %}
-                            </a>
-                        </td>
-                        <td class="col-2 col-md-2">
-                            <!-- Product name and SKU -->
-                            <p><strong>{{ item.name }}</strong></p>
-                            <p class="small text-muted">SKU: {{ item.sku|upper }}</p>
-                        </td>
-                        <td class="col-6 col-md-4">
-                            <!-- Product description -->
-                            <p class="text-muted">${{ item.description }}</p>
-                            <!-- Buttons -->
-                            <form class="form" action="{% url 'add_to_bag' item.id %}" method="POST">
-                                {% csrf_token %}
-                                <input type="hidden" class="form-control qty_input" name="quantity" value="1" min="1" max="1000" data-item_id="{{ item.id }}" id="id_qty_{{ item.id }}">
-                                <a href="{% url 'user_wishlist' item.id %}" class="btn btn-primary rounded-0">
-                                    <span class="text-uppercase">Remove from wishlist</span>
-                                </a>
-                                <input type="submit" class="btn btn-primary rounded-0 text-uppercase" value="Add to Bag">
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            </form>
-                            <hr> 
-                        </td>
-                        <td class="col-3 col-md-3">
-                            <!-- Product price -->
-                            <p>${{ item.price }}</p>
-                        </td>
-                        
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% else %}
-            <p class="lead mb-5">Your wishlist is empty.</p>
-            {% endif %}
-        </div>
-    </div>
+<div class="wishlist-page">
+    <h1>My Wishlist</h1>
+    {% if wishlist_items %}
+        <table class="wishlist-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Unit Price</th>
+                    <th>Rating</th>
+                    <th>Date Added</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in wishlist_items %}
+                <tr>
+                    <td>
+                        <img src="{{ item.product.thumbnail_image.url }}" alt="{{ item.product.name }}" class="wishlist-image">
+                        <div class="item-details">
+                            <h2>{{ item.product.name }}</h2>
+                            <p>{{ item.product.description }}</p>
+                        </div>
+                    </td>
+                    <td class="price">€{{ item.product.price }}</td>
+                    <td class="rating">{{ item.product.rating }}</td>
+                    <td class="date-added">{{ item.created_at|date:"Y-m-d" }}</td>
+                    <td>
+                        <a href="{% url 'remove_from_wishlist' item.product.id %}" class="remove-button">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No items in your wishlist.</p>
+    {% endif %}
 </div>
 {% endblock %}
-
-

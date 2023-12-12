@@ -533,9 +533,72 @@ footer a:hover {
 }
 
 /* wishlist */
-.wishlist {
-    padding: 10%;
+.wishlist-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
+
+.wishlist-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wishlist-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.wishlist-table thead {
+    background-color: #eee;
+}
+
+.wishlist-table th,
+.wishlist-table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.wishlist-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    float: left;
+}
+
+.item-details {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.item-details h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.item-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.price {
+    font-size: 16px;
+    color: #333;
+}
+
+.remove-button {
+    color: #d9534f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.remove-button:hover {
+    text-decoration: underline;
+}
+
 
 
 /* Bag items style */

@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-o7r9rhmi7kd.ws-eu107.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-o7r9rhmi7kd.ws-eu107.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com']
+ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com']
 
 
 # Application definition
@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'wishlist',
-    'rating',
+    # 'rating',
 
      # Other
     'crispy_forms',
@@ -131,17 +131,28 @@ WSGI_APPLICATION = 'garvin_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    DATABASES = {
+# DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
+
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+# if 'DATABASE_URL' in os.environ:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

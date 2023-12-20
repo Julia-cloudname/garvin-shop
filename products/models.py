@@ -23,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    # rating = models.FloatField(max_digits=6, decimal_places=2, null=True, blank=True)  
     thumbnail_image = models.ImageField(upload_to='products/thumbnails/', null=True, blank=True)
     detailed_image = models.ImageField(upload_to='products/detailed/', null=True, blank=True)
 
@@ -50,7 +50,7 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.CharField(max_length=300) 
     created_at = models.DateTimeField(auto_now_add=True)
-    
+    user_rating = models.FloatField(default=0.0)
 
     def __str__(self):
         return f'Review by {self.user} on {self.product}'

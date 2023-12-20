@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
 def all_products(request):
@@ -147,16 +147,19 @@ def delete_product(request, product_id):
 
 
 def add_review(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.product = product
-            review.user = request.user
-            review.save()
-            return redirect('product_detail', product_id=product.id)
-    else:
-        form = ReviewForm()
-    return render(request, 'add_review.html', {'form': form, 'product': product})
+        user_rating = request.POST['user_rating']
+        product_id = request.POST['product_id']
+        content = request.POST['content']
 
+        product = get_object_or_404(Product, pk=product_id)
+
+        review = Review(
+                product=product,
+                user=request.user, 
+                content=content,
+                user_rating=user_rating
+                )
+        review.save()
+
+    return redirect('product_detail', product_id=product.id)

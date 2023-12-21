@@ -5,6 +5,7 @@
 {% block extra_title %}{{ product.name }}{% endblock %}
 
 {% block page_header %}
+<!-- Page Header -->
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -16,7 +17,9 @@
 
 <div class="overlay"></div>
 <div class="container-fluid">
+    <!-- Product Details section -->
     <div class="row">
+        <!-- Product Image -->
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if product.detailed_image %}
@@ -30,10 +33,13 @@
                 {% endif %}
             </div>
         </div>
+        <!-- End Product Image and Details -->
         <div class="col-12 col-md-6 col-lg-4">
+            <!-- Product datails -->
             <div class="product-details-container mb-5 mt-md-5">
                 <h2 class="mb-0">{{ product.name }}</h2>
                 <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                <!-- Category -->
                 {% if product.category %}
                 <p class="small mt-1 mb-0">
                     <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -41,23 +47,29 @@
                     </a>
                 </p>
                 {% endif %}
+                <!-- Rating -->
                 {% if rating %}
                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
                 {% if request.user.is_superuser %}
+                <!-- Edit and delete buttons for manager -->
                 <small class="ml-3">
                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                 </small>
                 {% endif %}
+                <!-- Product description -->
                 <p class="mt-3">{{ product.description }}</p>
                 <!-- Buttons to add and remove from wishlist -->
-                <a href="{% url 'user_wishlist' product.id %}" class="btn btn-primary" role="button" aria-disabled="true">Add to wishlist</a>
+                <a href="{% url 'user_wishlist' product.id %}" class="btn btn-primary" role="button"
+                    aria-disabled="true">Add to wishlist</a>
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    <!-- End wishlist -->
                     {% csrf_token %}
                     <div class="form-row">
+                        <!-- Change Quantity form -->
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
@@ -83,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Quantity and Keep shoppping section -->
                         <div class="col-12">
                             <a href="{% url 'products' %}" class="btn btn-primary rounded-0 mt-5">
                                 <span class="icon">
@@ -91,7 +103,8 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <input type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            <input type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5"
+                                value="Add to Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
@@ -101,18 +114,18 @@
     </div>
 
     <!-- Review Section -->
-<div class="reviews-container my-5">
-    {% for review in reviews %}
-    <div class="review-item">
-        <h5>{{ review.user.username }}</h5>
-        <p>{{ review.content }}</p>
-        <p>Rating: {{ review.user_rating }} / 5</p>
-        <small>{{ review.created_at }}</small>
+    <div class="reviews-container my-5">
+        {% for review in reviews %}
+        <div class="review-item">
+            <h5>{{ review.user.username }}</h5>
+            <p>{{ review.content }}</p>
+            <p>Rating: {{ review.user_rating }} / 5</p>
+            <small>{{ review.created_at }}</small>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 
-<!-- Submit Review Section -->
+    <!-- Submit Review Section -->
     {% if request.user.is_authenticated %}
     <div class="row">
         <div class="col-12">
@@ -121,15 +134,18 @@
                 <form method="post" action="{% url 'add_review' product.id %}">
                     {% csrf_token %}
                     <div id="app">
+                        <!-- Rating submit form -->
                         <div>
                             <label for="rating-inline">Inline rating:</label>
-                            <b-form-rating id="rating-inline" v-model="user_rating" inline name="user_rating"></b-form-rating>
+                            <b-form-rating id="rating-inline" v-model="user_rating" inline
+                                name="user_rating"></b-form-rating>
+                            <!-- Review form  -->
                             {{ review_form.content }}
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Review</button>
                 </form>
-                
+
             </div>
         </div>
     </div>
@@ -141,21 +157,22 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<!-- JaveScript to display rating as stars -->
 <script>
-new Vue({
-    el: '#app',
-    data: {
-        user_rating: 0
-    },
-    watch: {
-        user_rating(newValue) {
-            document.getElementsByName('user_rating')[0].value = newValue;
+    new Vue({
+        el: '#app',
+        data: {
+            user_rating: 0
+        },
+        watch: {
+            user_rating(newValue) {
+                document.getElementsByName('user_rating')[0].value = newValue;
+            }
         }
-    }
-});
+    });
 
 </script>
-    
-  
+
+
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

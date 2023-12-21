@@ -152,20 +152,24 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def add_review(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        user_rating = request.POST['user_rating']
-        product_id = request.POST['product_id']
-        content = request.POST['content']
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.user_rating = request.POST.get('user_rating', 0)
+            review.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        review_form = ReviewForm()
 
-        product = get_object_or_404(Product, pk=product_id)
+    context = {
+        'product': product,
+        'form': review_form,
+    }
 
-        review = Review(
-                product=product,
-                user=request.user, 
-                content=content,
-                user_rating=user_rating
-                )
-        review.save()
-
-    return redirect('product_detail', product_id=product.id)
+    return render(request, 'product_detail.html', context)

@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<!-- Section for Reviews -->
+<!-- Section displays previous reviews -->
 <section id="reviews-section" class="reviews-section">
     <div class="container">
         <h2>Latest Reviews</h2>
@@ -77,6 +77,7 @@
                     <div class="review-item">
                         <h5>{{ review.user.username }}</h5>
                         <p>{{ review.content }}</p>
+                        <p>Rating: {{ review.user_rating }} / 5</p>
                         <small>{{ review.created_at }}</small>
                     </div>
                 </div>

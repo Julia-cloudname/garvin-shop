@@ -120,22 +120,16 @@
                 <h3>Write a Review</h3>
                 <form method="post" action="{% url 'add_review' product.id %}">
                     {% csrf_token %}
-                    
                     <div id="app">
                         <div>
-                          <label for="rating-inline">Inline rating:</label>
-                          <b-form-rating id="rating-inline" v-model="user_rating" inline></b-form-rating>
-                          <input type="hidden" name="user_rating" :value="user_rating">
+                            <label for="rating-inline">Inline rating:</label>
+                            <b-form-rating id="rating-inline" v-model="user_rating" inline name="user_rating"></b-form-rating>
+                            {{ review_form.content }}
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="content">Your Review:</label>
-                        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
-                    </div>
-                    <input type="hidden" name="product_id" value="{{product.id}}">
-        
                     <button type="submit" class="btn btn-primary">Submit Review</button>
                 </form>
+                
             </div>
         </div>
     </div>

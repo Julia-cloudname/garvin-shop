@@ -67,14 +67,20 @@ def all_products(request):
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all()
-    rating = reviews.aggregate(Avg('user_rating'))['user_rating__avg']
     review_form = ReviewForm()  
+    rating = reviews.aggregate(Avg('user_rating'))['user_rating__avg']
+    if rating is not None:
+        formatted_rating = f"{rating:.1f}"
+    else:
+        formatted_rating = "No rating"
+
     context = {
         'product': product,
         'reviews': reviews,
         'review_form': review_form,
-        'rating' : f"{rating:.1f}",
+        'rating': formatted_rating,
     }
+
     return render(request, 'products/product_detail.html', context)
 
 

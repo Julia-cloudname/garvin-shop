@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io']
-CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com']
+ALLOWED_HOSTS = ['garvin-df2eed558b96.herokuapp.com', 'juliacloudn-garvinshopv-boptst882t4.herokuapp.com', '8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://8000-juliacloudn-garvinshopv-u44jewlp9yk.ws-eu107.gitpod.io', 'https://garvin-df2eed558b96.herokuapp.com', 'https://127.0.0.1']
 
 
 # Application definition

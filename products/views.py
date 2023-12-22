@@ -4,8 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 
-from .models import Product, Category, Review
-from .forms import ProductForm, ReviewForm
+from .models import Product, Category
+from .forms import ProductForm
+
+from reviews.models import Review  
+from reviews.forms import ReviewForm 
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -66,13 +69,20 @@ def all_products(request):
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    reviews = product.reviews.all()
-    review_form = ReviewForm()  
-    rating = reviews.aggregate(Avg('user_rating'))['user_rating__avg']
-    if rating is not None:
-        formatted_rating = f"{rating:.1f}"
+    reviews = Review.objects.filter(product=product)
+    review_form = ReviewForm()
+    if product.rating is not None:
+        formatted_rating = f"{product.rating:.1f}"
     else:
         formatted_rating = "No rating"
+
+    context = {
+        'product': product,
+        'reviews': reviews,
+        'review_form': review_form,
+        'rating': formatted_rating,
+    }
+
 
     context = {
         'product': product,
@@ -152,24 +162,4 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-@login_required
-def add_review(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
-        review_form = ReviewForm(request.POST)
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.product = product
-            review.user = request.user
-            review.user_rating = request.POST.get('user_rating', 0)
-            review.save()
-            return redirect('product_detail', product_id=product.id)
-    else:
-        review_form = ReviewForm()
 
-    context = {
-        'product': product,
-        'form': review_form,
-    }
-
-    return render(request, 'product_detail.html', context)

@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import Product, Category, Review
+from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
@@ -22,18 +22,5 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
 
-class ReviewForm(forms.ModelForm):
-    class Meta:
-        model = Review
-        fields = ['content'] 
-        widgets = {
-            'product': forms.HiddenInput(),
-            'user': forms.HiddenInput(),
-            'created_at': forms.HiddenInput(),
-            'user_rating': forms.HiddenInput(),
-            'content': forms.Textarea
-        }
-        labels = {
-            'content': 'Your Review',            
-        }
+
 

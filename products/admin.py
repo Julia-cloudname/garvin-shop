@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, ProductImage, Category, Review
+from .models import Product, ProductImage, Category
 from wishlist.models import Wishlist
 
 class ProductImageInline(admin.TabularInline):
@@ -9,23 +9,17 @@ class ProductImageInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('sku', 'name', 'category', 'price',  'card_type')
+    list_display = ('sku', 'name', 'category', 'price',  'card_type', 'rating')
     ordering = ('sku',)
     inlines = [ProductImageInline]
     search_fields = ('sku', 'name', 'description', 'category__name')
-    list_filter = ('category', 'card_type')
+    list_filter = ('category', 'card_type', 'rating')
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('friendly_name', 'name')
     search_fields = ('name', 'friendly_name')
 
-
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('product', 'user', 'content', 'created_at', 'user_rating') 
-    list_filter = ('product', 'user', 'created_at')
-    search_fields = ('content', 'product__name', 'user__username')
-    readonly_fields = ('created_at',)
 
 
 class WishlistAdmin(admin.ModelAdmin):
@@ -36,5 +30,4 @@ class WishlistAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Review, ReviewAdmin)
 admin.site.register(Wishlist, WishlistAdmin)

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from products.models import Product, Review
+from products.models import Product
+from reviews.models import Review
 
 def index(request):
     """ A view to return the index page """

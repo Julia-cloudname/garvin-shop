@@ -28,7 +28,6 @@ class Product(models.Model):
     detailed_image = models.ImageField(upload_to='products/detailed/', null=True, blank=True)
     rating = models.FloatField(
         null=True, 
-        blank=True, 
         validators=[
             MinValueValidator(0.0),  
             MaxValueValidator(5.0)   

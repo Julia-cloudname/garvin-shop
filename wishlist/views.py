@@ -8,7 +8,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 @login_required
 def wishlist(request):
     wishlist_items = Wishlist.objects.filter(user=request.user)
-    return render(request, 'wishlist/wishlist.html', {'wishlist_items': wishlist_items})
+    template = 'wishlist/wishlist.html'
+    return render(request, template, {'wishlist_items': wishlist_items})
 
 @login_required
 def add_to_wishlist(request, product_id):

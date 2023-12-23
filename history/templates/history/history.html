@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="history-page">
+    <h1>My History</h1>
+    {% if order_history %}
+        <!-- <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Delivery Cost</th>
+                    <th>Grand Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in order_history %}
+                <tr>
+                    <td>{{ order.order_number }}</td>
+                    <td>{{ order.date }}</td>
+                    <td>
+                        {% for item in order.lineitems.all %}
+                            {{ item.product.name }} x {{ item.quantity }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>€{{ order.order_total }}</td>
+                    <td>€{{ order.delivery_cost }}</td>
+                    <td>€{{ order.grand_total }}</td>
+                    <td>{{ order.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table> -->
+    {% else %}
+        <p>No order history found.</p>
+    {% endif %}
+
+{% endblock %}

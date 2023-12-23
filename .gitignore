@@ -14,8 +14,7 @@ env/
 *.pyc
 .vscode/
 *.log
-*.db
-.vscode/
+*.dbs
 .idea/
 Pipfile.lock
 poetry.lock

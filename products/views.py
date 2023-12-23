@@ -10,6 +10,8 @@ from .forms import ProductForm
 from reviews.models import Review  
 from reviews.forms import ReviewForm 
 
+from history.views import add_to_history
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
     
@@ -75,6 +77,9 @@ def product_detail(request, product_id):
         formatted_rating = f"{product.rating:.1f}"
     else:
         formatted_rating = "No rating"
+
+    if request.user.is_authenticated:
+        add_to_history(request, product_id)
 
     context = {
         'product': product,

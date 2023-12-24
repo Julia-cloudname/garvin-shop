@@ -414,8 +414,36 @@ input[name='q']::placeholder {
     padding: 2rem;
 }
 
-/* History */
+/* History section */
 
+.history-section .container {
+    padding: 2rem 0;
+}
+
+.history-section h2 {
+    text-align: center;  
+    margin-bottom: 1rem;  
+}
+
+.history-section .history-veiw-cards {
+    display: flex;  
+    align-items: center; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+.history-section img {
+    margin: 0 10px;  
+    max-width: 100px;  
+    height: auto;  
+    border-radius: 5px;  
+}
+
+@media (max-width: 768px) {
+    .history-section .history-veiw-cards {
+        justify-content: space-around;  
+    }
+}
 
 
 /* -------------------------------- Media Queries */

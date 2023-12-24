@@ -415,6 +415,18 @@ input[name='q']::placeholder {
 }
 
 /* History section */
+.history-block {
+    padding-top: 150px;  
+    min-height: 88vh;  
+}
+
+/* sticky footer */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
 
 .history-section .container {
     padding: 2rem 0;

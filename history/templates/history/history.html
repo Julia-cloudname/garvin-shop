@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-5 pt-5">
+<div class="container history-block"> 
     <h2 class="text-center">Your Browsing History</h2>
     <p class="text-center">These items were viewed recently. We use them to personalize recommendations.</p>
     <div class="row">
@@ -20,7 +20,7 @@
                                 <small class="text-muted">No Rating</small>
                             {% endif %}
                         </div>
-                        <a href="" class="btn btn-danger mt-3">Remove from history</a>
+                        <a href="{% url 'remove_from_history' item.product.id %}" class="btn btn-danger mt-3">Remove from history</a>
                     </div>
                     <div class="ml-2">
                         <img src="{{ item.product.thumbnail_image.url }}" class="img-thumbnail" alt="{{ item.product.name }}" style="max-width: 100px;">

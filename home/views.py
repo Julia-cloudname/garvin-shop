@@ -20,4 +20,8 @@ def special_offers(request):
     return render(request, 'home/special_offers.html')
 
 def my_custom_page_not_found_view(request, exception):
+    """
+    Custom 404 error handler.
+    Renders a custom 404 error page when a requested resource is not found.
+    """
     return render(request, '404.html', {}, status=404)

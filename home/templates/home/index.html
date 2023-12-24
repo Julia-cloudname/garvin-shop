@@ -90,6 +90,7 @@
 <section id="history-section" class="history-section">
     <div class="container">
         <h2>History</h2>
+        <!--Displays clickable photo to product-->
         <div class="history-veiw-cards">
             {% for history in home_view_history %}
                 <a href="{% url 'product_detail' history.product.id %}">

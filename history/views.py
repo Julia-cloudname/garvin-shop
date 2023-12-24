@@ -7,12 +7,17 @@ from django.contrib import messages
 
 @login_required
 def view_history(request):
-    # Retrieves the viewing history of the currently logged-in user
+    """
+    Display the viewing history for the logged-in user.
+    """
     user_history = ProductViewHistory.objects.filter(user=request.user)
     return render(request, 'history/history.html', {'history': user_history})
 
 @login_required
 def add_to_history(request, product_id):
+    """
+    Add a product view to the user's viewing history or update the timestamp if it already exists.
+    """
     product = get_object_or_404(Product, pk=product_id)
     # Creates or updates the viewing history entry for the product
     history_entry, created = ProductViewHistory.objects.get_or_create(
@@ -28,8 +33,10 @@ def add_to_history(request, product_id):
 
 @login_required
 def remove_from_history(request, product_id):
+    """
+    Remove a product from the user's viewing history.
+    """
     product = get_object_or_404(Product, pk=product_id)
-    # Deletes the viewing history entry for the product
     history_entry = ProductViewHistory.objects.get(
         user=request.user, 
         product=product

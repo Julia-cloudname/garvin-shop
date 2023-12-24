@@ -20,6 +20,7 @@
                                 <small class="text-muted">No Rating</small>
                             {% endif %}
                         </div>
+                        <!-- Button to remove the product from the history -->
                         <a href="{% url 'remove_from_history' item.product.id %}" class="btn btn-danger mt-3">Remove from history</a>
                     </div>
                     <div class="ml-2">

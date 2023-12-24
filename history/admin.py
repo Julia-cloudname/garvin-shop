@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import ProductViewHistory
 
-# Register your models here.
+class HistoryAdmin(admin.ModelAdmin):
+    list_display = ('product', 'user', 'created_at')
+    ordering = ('created_at', 'user', 'product')
+    search_fields = ('product__name', 'user__username')
+    list_filter = ('product', 'user', 'created_at')
+
+admin.site.register(ProductViewHistory, HistoryAdmin)

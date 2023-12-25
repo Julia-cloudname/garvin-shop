@@ -415,6 +415,16 @@ input[name='q']::placeholder {
 }
 
 /* History section */
+.gray-link {
+    color: gray;          
+    text-decoration: none;  
+}
+
+.gray-link:hover {
+    color: darker-gray-color;  
+    text-decoration: underline;  
+}
+
 .history-block {
     padding-top: 150px;  
     min-height: 88vh;  

@@ -44,3 +44,12 @@ def remove_from_history(request, product_id):
     history_entry.delete()
     messages.success(request, f'{product.name} was removed from your viewing history')
     return redirect('view_history')
+
+@login_required
+def clear_history(request):
+    """
+    Clear the user's viewing history.
+    """
+    ProductViewHistory.objects.filter(user=request.user).delete()
+    messages.success(request, 'Your viewing history was cleared')
+    return redirect('view_history')

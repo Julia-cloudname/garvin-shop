@@ -87,7 +87,7 @@
 </section>
 
 <!-- Section displays previously viewed products --> 
-{% if user.is_authenticated %}
+{% if user.is_authenticated and home_view_history %}
 <section id="history-section" class="history-section">
     <div class="container">
         <h2>History</h2>

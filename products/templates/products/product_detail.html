@@ -62,11 +62,21 @@
                 {% endif %}
                 <!-- Product description -->
                 <p class="mt-3">{{ product.description }}</p>
-                <!-- Buttons to add and remove from wishlist -->
-                <a href="{% url 'user_wishlist' product.id %}" class="btn btn-primary" role="button"
-                    aria-disabled="true">Add to wishlist</a>
+               <!-- Buttons to add and remove from wishlist -->
+                {% if request.user.is_authenticated %}
+                    {% if product.id in wishlist_product_ids %}
+                        <!-- Show remove from wishlist button -->
+                        <a href="{% url 'remove_from_wishlist' product.id %}" class="btn btn-danger">Remove from Wishlist</a>
+                    {% else %}
+                        <!-- Show add to wishlist button -->
+                        <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-primary">Add to Wishlist</a>
+                    {% endif %}
+                {% endif %}
+                <!-- End wishlist -->
+
+
+                <!-- Add to bag form -->
                 <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                    <!-- End wishlist -->
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- Change Quantity form -->

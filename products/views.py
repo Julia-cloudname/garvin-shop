@@ -7,6 +7,8 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
+from wishlist.models import Wishlist
+
 from reviews.models import Review  
 from reviews.forms import ReviewForm 
 
@@ -73,6 +75,12 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     review_form = ReviewForm()
+
+    if request.user.is_authenticated:
+        wishlist_product_ids = Wishlist.objects.filter(user=request.user).values_list('product_id', flat=True)
+    else:
+        wishlist_product_ids = []
+
     if product.rating is not None:
         formatted_rating = f"{product.rating:.1f}"
     else:
@@ -86,16 +94,8 @@ def product_detail(request, product_id):
         'reviews': reviews,
         'review_form': review_form,
         'rating': formatted_rating,
+        'wishlist_product_ids': wishlist_product_ids, 
     }
-
-
-    context = {
-        'product': product,
-        'reviews': reviews,
-        'review_form': review_form,
-        'rating': formatted_rating,
-    }
-
     return render(request, 'products/product_detail.html', context)
 
 

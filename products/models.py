@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Q, Avg
 
 class Category(models.Model):
-
+    """ Model to define the categories of products """
     class Meta:
         verbose_name_plural = 'Categories'
         
@@ -19,6 +19,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """ Model to define the products """
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -44,8 +45,8 @@ class Product(models.Model):
         default='vertical',
     )
 
-    # Method to update the average rating
     def update_rating(self):
+        """ Method to update the average rating """
         reviews = self.reviews.all()
         average_rating = reviews.aggregate(Avg('user_rating'))['user_rating__avg']
         
@@ -61,6 +62,7 @@ class Product(models.Model):
         return self.name
 
 class ProductImage(models.Model):
+    """ Model to define the product images """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     thumbnail_image = models.ImageField(upload_to='thumbnails/')
     detailed_image = models.ImageField(upload_to='detailed/')

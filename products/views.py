@@ -3,15 +3,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.db.models.functions import Lower
-
 from .models import Product, Category
 from .forms import ProductForm
-
 from wishlist.models import Wishlist
-
 from reviews.models import Review  
 from reviews.forms import ReviewForm 
-
 from history.views import add_to_history
 
 def all_products(request):
@@ -72,22 +68,23 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    """
+    Display the details of a specific product, including reviews, ratings, 
+    and wishlist status for authenticated users.
+    """
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     review_form = ReviewForm()
 
+    # Determine the formatted rating or set it to "No rating"
+    formatted_rating = f"{product.rating:.1f}" if product.rating is not None else "No rating"
+
+    # Check if the user is authenticated and add product to history
     if request.user.is_authenticated:
         wishlist_product_ids = Wishlist.objects.filter(user=request.user).values_list('product_id', flat=True)
+        add_to_history(request, product_id)
     else:
         wishlist_product_ids = []
-
-    if product.rating is not None:
-        formatted_rating = f"{product.rating:.1f}"
-    else:
-        formatted_rating = "No rating"
-
-    if request.user.is_authenticated:
-        add_to_history(request, product_id)
 
     context = {
         'product': product,
@@ -96,12 +93,13 @@ def product_detail(request, product_id):
         'rating': formatted_rating,
         'wishlist_product_ids': wishlist_product_ids, 
     }
+
     return render(request, 'products/product_detail.html', context)
 
 
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """ Add a product to the shop """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))

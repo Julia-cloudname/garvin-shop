@@ -1,13 +1,9 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
 from .models import UserProfile
 from .forms import UserProfileForm
-
 from checkout.models import Order
-from products.models import Product
-
 
 @login_required
 def profile(request):
@@ -36,6 +32,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ Display the user's order history. """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

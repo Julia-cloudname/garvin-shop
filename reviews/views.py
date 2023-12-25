@@ -2,11 +2,12 @@ from django.shortcuts import render
 from reviews.models import Review
 from products.models import Product
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from reviews.forms import ReviewForm 
 
 @login_required
 def add_review(request, product_id):
+    """ Add a review to a product """
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)

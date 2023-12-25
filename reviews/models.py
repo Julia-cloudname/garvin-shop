@@ -5,6 +5,7 @@ from products.models import Product
 from django.db.models import Q, Avg
 
 class Review(models.Model):
+    """ Model to define the reviews """
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.CharField(max_length=300) 
@@ -18,6 +19,7 @@ class Review(models.Model):
     )
 
     def save(self, *args, **kwargs):
+        """ Override the original save method to update the product rating """
         super().save(*args, **kwargs)
         self.product.update_rating()
 

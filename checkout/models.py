@@ -3,15 +3,13 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from django_countries.fields import CountryField
-
 from products.models import Product
 from profiles.models import UserProfile
-
 from bag.contexts import calculate_price_based_on_quantity
 
 class Order(models.Model):
+    """ Model for orders """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
@@ -56,6 +54,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ Model for order line items """
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)

@@ -12,6 +12,7 @@ class ProductViewHistory(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        """ Meta class for ProductViewHistory model """
         ordering = ['-created_at']
         verbose_name_plural = 'Product View Histories'
 

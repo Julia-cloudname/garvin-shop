@@ -4,6 +4,9 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 def calculate_price_based_on_quantity(quantity, base_price):
+    """
+    Applies a discount depending on quantity.
+    """
     discount = Decimal(0)
     if 1 <= quantity < 10:
         discount = Decimal(0)
@@ -21,6 +24,9 @@ def calculate_price_based_on_quantity(quantity, base_price):
     return Decimal(round(float(adjusted_price)))
 
 def bag_contents(request):
+    """
+    Calculates total cost and counts items based on their adjusted prices.
+    """
     bag_items = []
     grand_total = 0
     product_count = 0

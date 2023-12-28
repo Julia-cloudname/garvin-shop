@@ -2,168 +2,79 @@ html {
     height: 100%;
 }
 
-/* Elements */
-.logo-font,
-.navbar-brand,
-.nav-link,
-.nav-item,
-.dropdown,
-.dropdown-item,
-.navbar-nav .nav-link.active,
-.card-title,
-#about-us-section h2, 
-.input-group>.input-group-append>.btn, 
-.navbar-nav .nav-link  
-{
-    color: #555;  
+body {
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Poppins', sans-serif !important; 
 }
 
-.container-fluid {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
+.main-content-offset {
+    padding-top: 130px; 
 }
+
+/* Menu */
+
+#topnav {
+    height: 60px; 
+}
+
+
+.custom-bg {
+    background-color: #343F4B; 
+}
+
+.custom-font {
+    color: #f7cac2;
+}
+
+#custom-btn {
+    background-color: #f7cac2;
+    color: #343F4B;
+}
+
+/* Headings */
+
+.section-heading {
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+}
+
+
 /* Banner */
+
 .banner {
-    background-image: url('/media/homepage_background_1.png');
-    background-size: cover;
-    background-position: center;
+    position: relative;
     padding: 4rem 0;
     text-align: center;
     height: 65%;
-    color: white; 
 }
 
-.banner-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/media/homepage_background_1.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); 
+    z-index: -1;
 }
 
-.banner-content .btn {
-    background-color: black; 
-    border: none;
-    color: white; 
-}
-
-.banner-content .btn:hover {
-    background-color: #333; 
-}
 
 /* Inner-banner */
 .inner-banner {
-    background-color: #252323db;
     padding: 2rem;  
     text-align: center;  
     border-radius: 10px;  
     max-width: 855px;  
     margin: auto;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
-}
-
-.inner-banner h1 {
-    color: #efe7e7; 
-}
-
-.inner-banner p {
-    color: #efe7e7;  
-}
-
-.inner-banner .btn {
-    background-color: #beb9b9;
-    border: none;
-    color: black;
-}
-
-body {
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
-}
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
-
-.text-black {
-    color: #555!important;
-}
-
-.border-black {
-    border: 1px solid #555!important;
-}
-
-.bg-black {
-    background: #555!important;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
-}
-
-a.category-badge>span.badge:hover {
-    background: #555 !important;
-    color: #fff !important;
-}
-
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
-
-.btn-primary {
-    background-color:  #555; 
-    border: none;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #333;
-    color: white;
+    background-color: #343f4be8; 
 }
 
 /* Rating */
@@ -190,6 +101,8 @@ input[name='q']::placeholder {
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+
+/* Button to top of page */
 .arrow-up {
     width: 0;
     height: 0;
@@ -201,7 +114,6 @@ input[name='q']::placeholder {
     right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -241,178 +153,18 @@ input[name='q']::placeholder {
 }
 
 /* About us section */
-/* #about-us-section {
-    padding: 2rem 0; 
-} */
 
-#about-us-section h2 {
-    font-size: 2rem; 
-    margin-bottom: 1rem; 
-}
-
-#about-us-section .about {
-    max-width: 855px; 
-    margin: auto; 
-    padding: 1rem; 
-    text-align: center; 
-}
-
-#about-us-section p {
-    color: #555; 
-    font-size: 1rem; 
-    line-height: 1.5; 
-}
-
-/* Styles for the product preview section */
-.products-preview-section {
-    padding: 2rem 0;
-    background-color: #f8f8f8; 
-}
-.products-preview-section h2 {
-    text-align: center;  
-}
-
-
-.products-preview-section .product {
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.products-preview-section .product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover; 
-}
-
-.products-preview-section .product .card-body {
-    padding: 0.5rem; 
-}
-
-
-.products-preview-section .product .card-title,
-.products-preview-section .product .card-text {
-    font-size: 0.9rem; 
-    color: #555; 
-}
-
-.products-preview-section .product .card-title {
-    margin-bottom: 0.5rem;
-}
 
 /* Container for all reviews */
-.reviews-container {
-    max-width: 800px;  
-    margin: auto;
-    padding: 1rem;
-    background-color: #f8f8f8;  
-    border-radius: 10px;  
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
-}
+
 
 /* Individual review item */
-.review-item {
-    border-bottom: 1px solid #ddd; 
-    padding: 1rem;
-    text-align: center; 
-}
 
-.review-item:last-child {
-    border-bottom: none;  
-}
-
-.review-item h5 {
-    color: #333;  
-    margin-bottom: 0.5rem;
-}
-
-.review-item p {
-    color: #555;  
-    font-size: 0.9rem; 
-    font-style: italic; 
-}
-
-.review-item small {
-    color: #777;  
-    display: block;  
-    margin-top: 0.5rem;
-}
 
 /* Styles for the reviews section on the main page */
-.reviews-section {
-    padding: 2rem 0; 
-}
 
-.reviews-section .row {
-    margin: 0;  
-}
-
-.reviews-section h2 {
-    text-align: center;  
-    margin-bottom: 1rem;  
-}
-
-.reviews-section .review-item {
-    background-color: #f8f8f8;  
-    padding: 1rem;  
-    margin-bottom: 1rem;  
-    border: 1px solid #ddd;  
-    border-radius: 5px;  
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
-    height: 100%;  
-}
-
-.reviews-section .review-item h5 {
-    margin-bottom: 0.5rem;  
-}
-
-.reviews-section .review-item p {
-    font-size: 0.9rem;  
-    color: #555;  
-    margin-bottom: 0.5rem;  
-}
-
-.reviews-section .review-item small {
-    font-size: 0.8rem;  
-    color: #777;  
-}
 
 /* Container for the feedback form */
-.review-form-container {
-    max-width: 800px; 
-    margin: 2rem auto; 
-    padding: 1rem; 
-    background-color: #f8f8f8; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-}
-
-.review-form-container h3 {
-    margin-bottom: 1rem; 
-}
-
-.review-form-container form {
-    text-align: left; 
-}
-
-.review-form-container .form-group {
-    margin-bottom: 1rem; 
-}
-
-.review-form-container .btn {
-    background-color: #555; 
-    border: none;
-    color: white;
-}
-
-.review-form-container .btn:hover {
-    background-color: #333; 
-}
-
-.contact-form-section {
-    padding: 2rem;
-}
 
 /* History section */
 .gray-link {
@@ -428,13 +180,6 @@ input[name='q']::placeholder {
 .history-block {
     padding-top: 150px;  
     min-height: 88vh;  
-}
-
-/* sticky footer */
-.footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
 
@@ -461,380 +206,79 @@ input[name='q']::placeholder {
     border-radius: 5px;  
 }
 
+/* sticky footer */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .history-section .history-veiw-cards {
         justify-content: space-around;  
     }
 }
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        color: #343F4B; 
+        font-weight: bold;
+    }
 
+    .navbar-nav .dropdown-menu {
+        background-color: #343F4B; 
+    }
+
+    .navbar-nav .dropdown-item {
+        color: #f7cac2; 
+    }
+
+   
+    .navbar-nav .dropdown-item:hover {
+        background-color: #f7cac2;
+        color: #343F4B;
+    }
+
+    .nav-link .fas, .nav-link p {
+        color: #f7cac2;  
+    }
+}
 
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-    .container {
-        max-width: 80%;
-    }
-    
 }
 
 /* Allauth form formatting */
 
-.allauth-form-inner-content p {
-    margin-top: 1.5rem;
-    /* mt-4 */
-    color: #6c757d;
-    /* text-secondary */
-}
-
-.allauth-form-inner-content input {
-    border-color: #555; 
-    border-radius: 0;
-}
-
-.allauth-form-inner-content label:not([for='id_remember']) {
-    display: none;
-}
-
-.allauth-form-inner-content input::placeholder {
-    color: #aab7c4;
-}
-
-.allauth-form-inner-content button,
-.allauth-form-inner-content input[type='submit'] {
-    /* btn */
-    display: inline-block;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: #555; 
-    border: 1px solid #555; 
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0;
-
-    /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {
-    color: #fff;
-    background-color: #222;
-    border-color: #222;
-}
-
-.allauth-form-inner-content a {
-    color: #17a2b8;
-    /* text-info */
-}
-
 /* Product Form */
-
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
-}
 
 /* Footer */
 
-footer {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1rem 0;
-
-}
-
-footer .container {
-    max-width: 1140px;  
-    margin: auto;
-}
-
-footer a {
-    color: #555;
-    font-size: 1.2rem;  
-}
-
-footer a:hover {
-    color: #333;
-}
-
 /* wishlist */
-.wishlist-page {
-    max-width: 100%;  
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 120px;  
-}
-
-.wishlist-page h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.wishlist-table {
-    width: 80%;  
-    margin: auto;  
-}
-
-.wishlist-table thead {
-    white-space: nowrap; 
-    background-color: #eee;
-}
-
-.wishlist-table thead th {
-    white-space: nowrap; 
-    font-size: 14px; 
-}
-
-.wishlist-table tbody td {
-    vertical-align: middle; 
-}
-.wishlist-table th,
-.wishlist-table td {
-    text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.wishlist-image {
-    height: 100px;
-    margin-right: 10px;
-    float: left;
-    display: block;
-}
-
-.date-added {
-    font-size: 14px; 
-}
-
-.product-link {
-    color: #333;  
-    text-decoration: none;  
-}
-
-.product-link:hover {
-    text-decoration: underline; 
-}
-
-
-.item-details {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.item-details h2 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-}
-
-.item-details p {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0;
-}
-
-.price {
-    font-size: 16px;
-    color: #333;
-}
-
-.remove-button {
-    color: #d9534f;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.remove-button:hover {
-    text-decoration: underline;
-}
-
-.cart-icon, .cart-button {
-    border: none;
-    background-color: transparent;
-    color: #2a8a2a;
-    font-size: 24px; 
-    text-align: center;
-}
 
 /* Mailchimp */
 #mc_embed_signup {
     background: #fff;
     clear: left;
-    font: 14px Helvetica, Arial, sans-serif;
+    /* font: 14px Helvetica, Arial, sans-serif; */
     width: 600px;
 }
 
 
-
 /* Bag items style */
-.bag-item {
-    border: 1px solid #ddd;  
-    background-color: #f8f8f8;  
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  
-    margin-bottom: 20px;  
-    border-radius: 5px; 
-    padding: 13%; 
-}
-
-.bag-item .table {
-    margin-bottom: 0;  
-}
-
-.bag-item .update-link, 
-.bag-item .remove-item {
-    font-weight: bold;  
-    color: #0056b3;  
-}
-
- 
-.bag-item .update-link:hover, 
-.bag-item .remove-item:hover {
-    color: #003d82;  
-    text-decoration: underline;  
-}
-
- 
-.bag-item h2.logo-font {
-    color: #333;  
-    text-align: center;  
-    margin-bottom: 20px;  
-}
-
-.bag-item .table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px; 
-}
-
-.bag-item .table td {
-    border-bottom: 1px solid #ddd;  
-    padding: 10px;  
-    vertical-align: middle;  
-}
-
-.bag-item .table th {
-    border-bottom: 2px solid #333;  
-    padding: 10px;  
-    background-color: #f8f8f8;  
-    text-align: left;  
-}
-
-.bag-item .table td:last-child {
-    text-align: right;  
-}
-
-.bag-item .table tr:last-child td {
-    border-bottom: none;
-}
 
 /* Signup page */
 
-.signup {
-    padding: 20%;  
-    text-align: center;  
-}
-
-.sigout {
-    padding: 30%;  
-}
-@media (max-width: 768px) {
-    footer .col-md-6 {
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-}
-
-.offers {
-    padding-top: 15%;
-}
-
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 130px;
-    }
     
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    
-    .header-container {
-        padding-top: 116px;
-    }
 
-    body {
-        height: calc(100vh - 116px);
-    }
 }
 
 @media (max-width: 768px) {
-
-    .review-form-container {
-        padding: 1rem; 
-    }
-
-    .reviews-section .review-item {
-        margin-bottom: 1rem;  
-    }
-
-    .banner {
-        padding: 2rem 0;
-        height: auto;  
-    }
-
-    .inner-banner {
-        padding: 1rem;
-        max-width: 100%;  
-    }
-
-    .banner-content h1 {
-        font-size: 1.5rem;  
-    }
-
-    .banner-content p {
-        font-size: 1rem;  
-    }
-    #about-us-section .about {
-        max-width: 100%; 
-    }
-    .products-preview-section .product {
-        margin-bottom: 1rem;
-    }
 }

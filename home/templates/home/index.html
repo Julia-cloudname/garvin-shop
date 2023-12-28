@@ -4,109 +4,102 @@
 {% block meta_description %}Discover unique and creative postcards at GARVIN Shop, perfect for every occasion including birthdays, holidays, and special events.{% endblock %}
 {% block extra_title %}Unique Postcards for Every Occasion{% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-
-<!-- Main banner -->
-<section class="banner">
-    <div class="banner-overlay"></div>
-    <div class="banner-content">
-        <div class="inner-banner">
-            <h1>With author's postcards from GARVIN</h1>
-            <p>Find the perfect card for every occasion</p>
-            <a href="{% url 'products' %}" class="btn btn-primary">Order cards</a>
+    <!-- Main banner -->
+    <section class="banner custom-font">
+        <div class="banner-overlay" ></div>
+        <div class="banner-content" id="banner-wrapper">
+            <div class="inner-banner">
+                <h1>With author's postcards from GARVIN</h1>
+                <p>Find the perfect card for every occasion</p>
+                <a href="{% url 'products' %}" class="btn" id="custom-btn">Order cards</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Products Section -->
-<section id="products-preview-section" class="products-preview-section">
-    <div class="container">
-        <h2 class="logo-font">Featured Products</h2>
-        <div class="row">
-            {% for product in products %}
-                <div class="col-md-2 col-sm-4">
-                    <div class="product">
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <p class="card-text">${{ product.price }}</p>
+    <!-- Products Section -->
+    <section id="products-preview-section" class="products-preview-section">
+        <div class="container">
+            <h2 class="text-secondary text-center section-heading">Featured Products</h2>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-2 col-sm-4">
+                        <div class="product">
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">${{ product.price }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'products' %}" class="btn btn-secondary">View More Products</a>
+            </div>
         </div>
-        <div class="text-center mt-4">
-            <a href="{% url 'products' %}" class="btn btn-secondary">View More Products</a>
-        </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- About us -->
-<div id="about-us-section" class="container-fluid">
-    <div class="row">
-      <div class="about">
-        <div class="cont">
-          <div id="about-us-title">
-            <h2>About Us:</h2>
-            <p>Welcome to GARVIN shop! 
-            <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail.</p>
-            <p>Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p></p>
-          </div>
-        </div>  
-    </div>
-</div>
-
-<!-- Section displays previous reviews -->
-<section id="reviews-section" class="reviews-section">
-    <div class="container">
-        <h2>Latest Reviews</h2>
+    <!-- About us -->
+    <div id="about-us-section" class="container-fluid">
         <div class="row">
-            {% for review in latest_reviews %}
-                <div class="col-md-3">
-                    <div class="review-item">
-                        <h5>{{ review.user.username }}</h5>
-                        <p>{{ review.content }}</p>
-                        <p>Rating: {{ review.user_rating }} / 5</p>
-                        <small>{{ review.created_at }}</small>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="about">
+            <div class="cont">
+            <div id="about-us-title">
+                <h2 class="text-secondary text-center section-heading">About Us</h2>
+                <p>Welcome to GARVIN shop! 
+                <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail.</p>
+                <p>Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p></p>
+            </div>
+            </div>  
         </div>
     </div>
-</section>
 
-<!-- Section displays previously viewed products --> 
-{% if user.is_authenticated and home_view_history %}
-<section id="history-section" class="history-section">
-    <div class="container">
-        <h2>History</h2>
-        <!--Displays clickable photo to product-->
-        <div class="history-veiw-cards">
-            {% for history in home_view_history %}
-                <a href="{% url 'product_detail' history.product.id %}">
-                    <img src="{{ history.product.thumbnail_image.url }}" class="img-thumbnail" alt="{{ history.product.name }}" style="max-width: 100px;">
-                </a>
-            {% empty %}
-                <p class="text-center">You have not viewed any products yet.</p>
-            {% endfor %}
+    <!-- Section displays previous reviews -->
+    <section id="reviews-section" class="reviews-section">
+        <div class="container">
+            <h2 class="text-secondary text-center section-heading">Latest Reviews</h2>
+            <div class="row">
+                {% for review in latest_reviews %}
+                    <div class="col-md-3">
+                        <div class="review-item">
+                            <h5>{{ review.user.username }}</h5>
+                            <p>{{ review.content }}</p>
+                            <p>Rating: {{ review.user_rating }} / 5</p>
+                            <small>{{ review.created_at }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="text-center mt-4">
-            <a href="{% url 'view_history' %}" class="btn btn-secondary">Manage history</a>
+    </section>
+
+    <!-- Section displays previously viewed products --> 
+    {% if user.is_authenticated and home_view_history %}
+    <section class="history-section">
+        <div class="container">
+            <h2 class="text-secondary text-center section-heading">History</h2>
+            <!--Displays clickable photo to product-->
+            <div class="history-veiw-cards">
+                {% for history in home_view_history %}
+                    <a href="{% url 'product_detail' history.product.id %}">
+                        <img src="{{ history.product.thumbnail_image.url }}" class="img-thumbnail" alt="{{ history.product.name }}" style="max-width: 100px;">
+                    </a>
+                {% empty %}
+                    <p class="text-center">You have not viewed any products yet.</p>
+                {% endfor %}
+            </div>
+            <div class="text-center mt-4">
+                <a href="{% url 'view_history' %}" class="btn btn-secondary">Manage history</a>
+            </div>
         </div>
-    </div>
-</section>
-{% endif %}
+    </section>
+    {% endif %}
 
 {% endblock %}
+
+
 

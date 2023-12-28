@@ -1,14 +1,10 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
-        <li class="nav-item">
-            <a class="nav-link active logo-font font-weight-bold mr-5" id="home-page" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Cards
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+        <li class="nav-item logo-font font-weight-bold mr-3 dropdown">
+            <a class="font-weight-bold nav-link mr-3" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Cards ▼
+            </a>            
+            <div class="dropdown-menu border-0" id="user-navigation-bar" aria-labelledby="all-products-link">
                 <a href="{% url 'products' %}?category=birthday_cards" class="dropdown-item">Birthday Cards</a>
                 <a href="{% url 'products' %}?category=love" class="dropdown-item ">Love</a>
                 <a href="{% url 'products' %}?category=christmas" class="dropdown-item ">Christmas</a>
@@ -16,21 +12,24 @@
                 <a href="{% url 'products' %}?category=birthday_cards,love,christmas,other" class="dropdown-item">All Cards</a>
             </div>
         </li>
-
         <li class="nav-item">
-            <a class="nav-link active logo-font font-weight-bold mr-5" id="contacts" aria-current="page" href="{% url 'contact' %}">Contact us</a>
+            <a class="nav-link logo-font font-weight-bold mr-5" id="home-page" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active logo-font font-weight-bold mr-5" id="about-us" aria-current="page" href="{% url 'home' %}#about-us-section">About us</a>
+            <a class="nav-link logo-font font-weight-bold mr-5" id="contacts" aria-current="page" href="{% url 'contact' %}">Contact us</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active logo-font font-weight-bold mr-5" id="reviews" aria-current="page" href="{% url 'home' %}#reviews-section">Reviews</a>
+            <a class="nav-link logo-font font-weight-bold mr-5" id="about-us" aria-current="page" href="{% url 'home' %}#about-us-section">About us</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link active logo-font font-weight-bold mr-5" id="special-offers" aria-current="page" href="{% url 'special_offers' %}">Special offers</a>
+            <a class="nav-link logo-font font-weight-bold mr-5" id="reviews" aria-current="page" href="{% url 'home' %}#reviews-section">Reviews</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link logo-font font-weight-bold mr-5" id="special-offers" aria-current="page" href="{% url 'special_offers' %}">Special offers</a>
         </li>
     </ul>
 </div>

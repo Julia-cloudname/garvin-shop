@@ -15,11 +15,11 @@
             <div class="col-md-2">
                 <div class="categories-list">
                     <h4>Categories</h4>
-                    <!-- Ссылка на все категории -->
+                    <!-- Link to all categories -->
                     <a class="category-badge text-decoration-none {% if not active_category %}active-category{% endif %}" href="{% url 'products' %}">
                         All Categories
                     </a>
-                    <!-- Остальные категории -->
+                    <!-- Other categories -->
                     {% for c in current_categories %}
                         <a class="category-badge text-decoration-none {% if c.name == active_category %}active-category{% endif %}" href="{% url 'products' %}?category={{ c.name }}">
                             {{ c.friendly_name }}

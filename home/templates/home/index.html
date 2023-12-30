@@ -21,23 +21,25 @@
     <section id="products-preview-section" class="products-preview-section">
         <div class="container">
             <h2 class="text-secondary text-center section-heading">Featured Products</h2>
-            <div class="row">
-                {% for product in products %}
-                    <div class="col-md-2 col-sm-4">
-                        <div class="product">
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <p class="card-text">${{ product.price }}</p>
+            <div class="main-page-products-preview">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-md-2 col-sm-4">
+                            <div class="product">
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">${{ product.price }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="text-center mt-4">
-                <a href="{% url 'products' %}" class="btn btn-secondary">View More Products</a>
+                    {% endfor %}
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{% url 'products' %}" class="btn" id="custom-btn">View More Products</a>
+                </div>
             </div>
         </div>
     </section>
@@ -45,37 +47,56 @@
 
     <!-- About us -->
     <div id="about-us-section" class="container-fluid">
-        <div class="row">
-        <div class="about">
-            <div class="cont">
-            <div id="about-us-title">
-                <h2 class="text-secondary text-center section-heading">About Us</h2>
-                <p>Welcome to GARVIN shop! 
-                <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail.</p>
-                <p>Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p></p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="about-us-title">
+                        <h2 class="text-secondary text-center section-heading">About Us</h2>
+                        <p>Right here, you can order and buy cool, original postcards to give to your loved one, friend, godmother, sister, brother, boyfriend, godchild, son, daughter, father, grandfather, grandmother, boss, nephew, niece, neighbor, lady next door, birthday person, for men, for women, for mom, for your best friend, for a colleague, for grandchildren, for a holiday, with a reason or without, wholesale or retail.</p>
+                        <p>Funny and stylish Ukrainian-language postcards for the New Year, birthdays, Valentine's Day, March 8th, Defender of the Fatherland Day, anniversaries, Easter, Mother's Day, name days, anniversaries. We guarantee fun, brightness, and a good mood!</p>
+                    </div>
+                </div>  
             </div>
-            </div>  
         </div>
     </div>
 
-    <!-- Section displays previous reviews -->
+   <!-- Section displays reviews -->
     <section id="reviews-section" class="reviews-section">
         <div class="container">
-            <h2 class="text-secondary text-center section-heading">Latest Reviews</h2>
-            <div class="row">
+            <h2 class="text-secondary text-center section-heading">Customers Reviews</h2>
+            <p class="text-center mb-4">
+                Hear from our happy customers who have experienced our unique postcards.
+            </p>
+
+            <div class="row text-center">
+                <!-- Repeat this block for each review -->
                 {% for review in latest_reviews %}
-                    <div class="col-md-3">
-                        <div class="review-item">
-                            <h5>{{ review.user.username }}</h5>
-                            <p>{{ review.content }}</p>
-                            <p>Rating: {{ review.user_rating }} / 5</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card testimonial-card">
+                        <div class="card-up"></div>
+                        <div class="avatar mx-auto bg-white">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mb-4">{{ review.user.username }}</h4>
+                            <hr />
+                            <p><strong>Product:</strong> <a href="{% url 'product_detail' review.product.id %}" class="product-link">{{ review.product.name }}</a></p>
+                            <p class="dark-grey-text mt-4">
+                                <i class="fas fa-quote-left pe-2"></i>
+                                {{ review.content|truncatechars:130 }}
+                                {% if review.content|length > 130 %}{% endif %}
+                            </p>
+                            <p><strong>Rating:</strong> {{ review.user_rating }} / 5</p>
                             <small>{{ review.created_at }}</small>
                         </div>
                     </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
     </section>
+
+
 
     <!-- Section displays previously viewed products --> 
     {% if user.is_authenticated and home_view_history %}
@@ -93,7 +114,7 @@
                 {% endfor %}
             </div>
             <div class="text-center mt-4">
-                <a href="{% url 'view_history' %}" class="btn btn-secondary">Manage history</a>
+                <a href="{% url 'view_history' %}" class="btn" id="custom-btn">Manage history</a>
             </div>
         </div>
     </section>

@@ -12,7 +12,7 @@ from history.models import ProductViewHistory
 def index(request):
     """ A view to return the index page """
 
-    latest_reviews = Review.objects.order_by('-created_at')[:4]
+    latest_reviews = Review.objects.order_by('-created_at')[:3]
     products = Product.objects.all()[:6] 
 
     # Initialize an empty query set for home_view_history
@@ -29,8 +29,6 @@ def index(request):
         'products': products, 
         'home_view_history': home_view_history
     })
-
-# Other views...
 
 
 def contact(request):

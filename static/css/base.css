@@ -11,7 +11,8 @@ body {
 
 .main-content-offset {
     padding-top: 130px; 
-}
+} 
+
 
 /* ------------------------------- bootstrap overrides */
 /* Logo */
@@ -98,6 +99,11 @@ body {
     margin: auto;  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
     background-color: #343f4be8; 
+}
+
+/* Contact us section */
+.contact-form-section {
+    padding-bottom: 70px;; 
 }
 
 /* Rating */
@@ -205,7 +211,7 @@ body {
 }
 
 /* Styles for the reviews section */
-/* (source: https://mdbootstrap.com/docs/standard/extended/testimonials/) */
+/* (template: https://mdbootstrap.com/docs/standard/extended/testimonials/) */
 .testimonial-card {
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -224,27 +230,24 @@ body {
 
 .testimonial-card .avatar {
     width: 40px;
-    margin-top: -90px;
+    margin-top: -15px;
     overflow: hidden;
     border: 3px solid #fff;
     border-radius: 50%;
 }
 
 .testimonial-card h4 {
-    color: #f7cac2; 
+    color:  #343F4B;
 }
 
 .testimonial-card p {
-    color: #555;  
+    color:#343F4B; 
 }
 
 .testimonial-card hr {
     margin: 15px auto;
     width: 50%;
 }
-
-
-
 
 /* Individual review item */
 
@@ -256,11 +259,6 @@ body {
 .product-link:hover {
     color: #f7cac2; 
 }
-
-
-
-/* Styles for the reviews section on the main page */
-
 
 /* Container for the feedback form */
 
@@ -309,6 +307,11 @@ body {
     position: relative;
     bottom: 0;
     width: 100%;
+    font-size: 1rem;
+}
+
+.main-content-offset-footer {
+    padding-top: 70px;
 }
 
 @media (max-width: 768px) {
@@ -354,16 +357,56 @@ body {
 
 /* Footer */
 
+/* Footer social media links */
+.social-links a {
+    color: #f7cac2;  
+    font-size: 2rem;  
+    margin-right: 10px;  
+    text-decoration: none;  
+}
+
+.social-links a:hover {
+    color: #d6d5d5;  
+}
+
+/* Footer Quick Links */
+#list-unstyled a {
+    font-size: 1rem;
+    color: #f7cac2;  
+    text-decoration: none;  
+}
+
+#list-unstyled a:hover {
+    color: #d6d5d5; 
+}
+
+
+
 /* wishlist */
 
 /* Mailchimp */
-#mc_embed_signup {
-    background: #fff;
+#mc_embed_signup .helper_text{
+    background: #343F4B;
     clear: left;
-    /* font: 14px Helvetica, Arial, sans-serif; */
-    width: 600px;
+    width: auto;  
+    padding: 0;
+    color: #fff;
 }
 
+#mc_embed_signup {
+    border: 1px solid #f7cac2;
+    border-radius: 1%;
+}
+
+#mc_embed_signup .button {
+    background-color: #f7cac2;
+    color: #343F4B;
+}
+
+.refferal_badge {
+    background-color: #343F4B;
+    color: #f7cac2 important;
+}
 
 /* Bag items style */
 

@@ -132,16 +132,6 @@ body {
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 
 /* Button to top of page */
-.arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 10px solid #555; 
-    position: absolute;
-    top: -10px;
-    right: 36px;
-}
 
 .arrow-primary {
     border-bottom-color: #007bff !important;
@@ -180,6 +170,36 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+/* Button to top of page */
+.btt-button {
+    position: fixed;  
+    bottom: 50px; 
+    right: 30px;  
+    width: 50px;  
+    height: 50px;  
+    z-index: 1050;  
+    border: none important;;  
+    background-color: #f7cac2;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btt-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #343F4B; 
+}
+
+.btt-link:hover {
+    color: #797a7a;
+}
+
 
 /*Main page products */
 

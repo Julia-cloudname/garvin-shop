@@ -97,11 +97,40 @@
        
     </div>
 
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>	
+    </div> 
+
     {% include 'includes/footer.html' %}
 
-
+       
     <!-- JavaScript for additional functionality -->
     {% block postloadjs %}
+    <script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+        var bttButton = document.querySelector('.btt-button');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                bttButton.style.display = "block";
+            } else {
+                bttButton.style.display = "none";
+            }
+        }
+
+        bttButton.addEventListener('click', function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+    });
+	</script>
+
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>

@@ -1,10 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.models import Product
 from reviews.models import Review
 from history.models import ProductViewHistory
-from django.contrib.auth.decorators import login_required
-
-from django.shortcuts import render
 from products.models import Product
 from reviews.models import Review
 from history.models import ProductViewHistory
@@ -33,6 +30,9 @@ def index(request):
 
 def contact(request):
     """ A view to return the contact page """
+    if request.method == 'POST':
+        return redirect('contact')
+
     return render(request, 'home/contact.html')
 
 def special_offers(request):

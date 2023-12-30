@@ -25,8 +25,8 @@
 <section class="contact-info-section mt-5">
     <div class="container">
         <h1>Contact Information for Garvin card's shop customers</h1>
-        <p>Phone: (093)8520908</p>
-        <p>Email: garvin.pp.ua@gmail.com</p>
+        <p><strong>Phone:</strong> (093)8520908</p>
+        <p><strong>Email:</strong> garvin.pp.ua@gmail.com</p>
     </div>
 </section>
 
@@ -46,17 +46,31 @@
 <!-- Contact Form -->
 <section class="contact-form-section">
     <div class="container">
-        <h2>Get in Touch</h2>
+        <h2 class="text-center">Get in Touch</h2>
         <div class="center-form">
             <form onsubmit="return sendMail(this);">
-                <input type="text" name="name" class="form-control" id="fullname" placeholder="Your name" required/>
-                <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Your email" required/>
-                <textarea rows="5" name="message" class="form-control" id="message" placeholder="Your message" required></textarea>
-                <button type="submit" class="btn btn-secondary center-block">Send message</button>
+                <div id="message-sent" class="text-success text-center mt-5 mb-5" style="display: none;">
+                    <strong>Thank you for your message! We will get back to you shortly.</strong>
+                </div>                
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Your name" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Your email" required/>
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" name="message" class="form-control" id="message" placeholder="Your message" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-secondary">Send message</button>
+                </div>
             </form>
         </div>
     </div>
 </section>
+
+
+
 
 
 {% endblock %}

@@ -43,8 +43,8 @@
                 <!-- Card type selector -->
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
-                        <select id="card-type-selector" class="custom-select custom-select-sm rounded-0 border border-black">
-                            <option value="all" {% if not current_card_type %}selected{% endif %}>All</option>
+                        <select id="card-type-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="all" {% if not current_card_type %}selected{% endif %}>All types</option>
                             <option value="horizontal" {% if current_card_type == 'horizontal' %}selected{% endif %}>Horizontal</option>
                             <option value="vertical" {% if current_card_type == 'vertical' %}selected{% endif %}>Vertical</option>
                         </select>                            
@@ -167,11 +167,9 @@
             var currentUrl = new URL(window.location);
             var currentCategory = currentUrl.searchParams.get("category");
 
-            // Если параметра нет, устанавливаем 'all' как активную категорию
             if (!currentCategory) {
                 $('#category-all').addClass('active-category');
             } else {
-                // Устанавливаем активную категорию на основе URL
                 $('.category-badge').each(function() {
                     if ($(this).attr('href').includes('category=' + currentCategory)) {
                         $(this).addClass('active-category');
@@ -179,7 +177,6 @@
                 });
             }
 
-            // Обработчик клика для установки активной категории
             $('.category-badge').on('click', function() {
                 $('.category-badge').removeClass('active-category');
                 $(this).addClass('active-category');

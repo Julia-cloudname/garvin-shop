@@ -240,6 +240,20 @@ body {
     color: #f7cac2;  
 }
 
+.custom-select{
+    border: 1px solid #f7cac2;  
+    border-radius: 5px;  
+    padding: 5px;  
+    width: 100px;  
+    margin-bottom: 20px;  
+    color: #555;  
+    font-size: 1rem;  
+    font-family: 'Poppins', sans-serif; 
+}
+
+#sort-selector{
+   margin-left: 50%;
+}
 
 /* About us section */
 
@@ -304,6 +318,28 @@ body {
 }
 
 /* Container for the feedback form */
+
+.contact-form-section h2 {
+    text-align: center;
+}
+
+.center-form {
+    max-width: 50%; 
+    margin: auto;
+}
+
+.center-form .form-group {
+    margin-bottom: 15px;  
+}
+
+#message-sent {
+    margin-top: 10%;
+}
+@media (max-width: 768px) {
+    .center-form {
+        max-width: 100%;
+    }
+}
 
 /* History section */
 .gray-link {

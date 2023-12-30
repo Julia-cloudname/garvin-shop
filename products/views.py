@@ -19,12 +19,16 @@ def all_products(request):
     sort = None
     direction = None
     card_type = None
+    active_category = None
 
     if request.GET:
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+            active_category = categories[0].name if categories else 'all'
+        else:
+            active_category = 'all'
 
         if 'card_type' in request.GET:
             card_type = request.GET['card_type']
@@ -56,15 +60,11 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
 
-    active_category = None  
-    if categories:
-        active_category = categories[0].name  
-
     context = {
         'products': products,
         'search_term': query,
-        'current_categories': Category.objects.all(),  
-        'active_category': active_category,  
+        'all_categories': Category.objects.all(),
+        'active_category': active_category,
         'current_sorting': current_sorting,
         'current_card_type': card_type,
     }

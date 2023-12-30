@@ -15,18 +15,16 @@
             <div class="col-md-2">
                 <div class="categories-list">
                     <h4>Categories</h4>
-                    <!-- Link to all categories -->
-                    <a class="category-badge text-decoration-none {% if not active_category %}active-category{% endif %}" href="{% url 'products' %}">
+                    <a class="category-badge text-decoration-none {% if active_category == 'all' %}active-category{% endif %}" href="{% url 'products' %}">
                         All Categories
                     </a>
-                    <!-- Other categories -->
-                    {% for c in current_categories %}
-                        <a class="category-badge text-decoration-none {% if c.name == active_category %}active-category{% endif %}" href="{% url 'products' %}?category={{ c.name }}">
-                            {{ c.friendly_name }}
-                        </a>
+                    {% for c in all_categories %}
+                    
+                    <a class="category-badge text-decoration-none {% if c.name == active_category %}active-category{% endif %}" href="{% url 'products' %}?category={{ c.name }}">
+                        {{ c.friendly_name }}
+                    </a>
                     {% endfor %}
                 </div>
-                             
                 
                 <hr>
                 <!-- Sort selector for rating, categories and name -->
@@ -166,11 +164,28 @@
         });
 
         $(document).ready(function() {
+            var currentUrl = new URL(window.location);
+            var currentCategory = currentUrl.searchParams.get("category");
+
+            // Если параметра нет, устанавливаем 'all' как активную категорию
+            if (!currentCategory) {
+                $('#category-all').addClass('active-category');
+            } else {
+                // Устанавливаем активную категорию на основе URL
+                $('.category-badge').each(function() {
+                    if ($(this).attr('href').includes('category=' + currentCategory)) {
+                        $(this).addClass('active-category');
+                    }
+                });
+            }
+
+            // Обработчик клика для установки активной категории
             $('.category-badge').on('click', function() {
                 $('.category-badge').removeClass('active-category');
                 $(this).addClass('active-category');
             });
         });
+
 
     </script>
     

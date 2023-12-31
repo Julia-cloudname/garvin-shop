@@ -60,6 +60,22 @@ body {
     color: #343F4B;
 }
 
+
+#custom-btn:hover {
+    background-color: #e1b1af; 
+    color: #fff;
+}
+
+#nav-reviews-tab, #nav-submit-review-tab {
+    color: #343F4B; 
+    background-color: #f7cac2;
+}
+
+#nav-reviews-tab.active, #nav-submit-review-tab.active {
+    color: #f7cac2;
+    background-color: #343F4B;
+}
+
 /* Headings */
 
 .section-heading {

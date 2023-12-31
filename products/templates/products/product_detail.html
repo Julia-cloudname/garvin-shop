@@ -126,11 +126,12 @@
     <!-- Previous reviews and leave review tabs -->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-reviews-tab" data-toggle="tab" href="#tab-reviews" role="tab" aria-controls="tab-reviews" aria-selected="true">Previous reviews</a>
-            <a class="nav-item nav-link" id="nav-submit-review-tab" data-toggle="tab" href="#tab-submit-review" role="tab" aria-controls="tab-submit-review" aria-selected="false">Leave review</a>
+            <a class="nav-item nav-link custom-tab active" id="nav-reviews-tab" data-toggle="tab" href="#tab-reviews" role="tab" aria-controls="tab-reviews" aria-selected="true">Previous reviews</a>
+            <a class="nav-item nav-link custom-tab" id="nav-submit-review-tab" data-toggle="tab" href="#tab-submit-review" role="tab" aria-controls="tab-submit-review" aria-selected="false">Leave review</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
+        <!-- Last review tab -->
         <div class="tab-pane fade show active" id="tab-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
             <div class="row justify-content-center">
                 {% for review in reviews reversed %}
@@ -147,36 +148,36 @@
                     </div>
                 {% endfor %}
             </div>
-        </div>        
-
+        </div>      
+        <!-- Leave review tab -->
         <div class="tab-pane fade" id="tab-submit-review" role="tabpanel" aria-labelledby="nav-submit-review-tab">
             {% if request.user.is_authenticated %}
-            <div class="row">
-                <div class="col-12">
-                    <div class="review-form-container mt-5 p-3 border mb-5">
-                        <h3>Write a Review</h3>
-                        <form method="post" action="{% url 'add_review' product.id %}">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="review-form-container mt-5 p-4 border mb-5">
+                        <h3 class="text-center">Write a Review</h3>
+                        <form method="post" action="{% url 'add_review' product.id %}" class="mt-4">
                             {% csrf_token %}
-                            <div id="app">
-                                <!-- Rating submit form -->
-                                <div>
-                                    <label for="rating-inline">Inline rating:</label>
-                                    <b-form-rating id="rating-inline" v-model="user_rating" inline
-                                        name="user_rating"></b-form-rating>
-                                    <!-- Review form  -->
-                                    <label for="content">Your Review:</label>
-                                    {{ review_form.content }}
-                                </div>
+                            <div id="app" class="mb-3">
+                                <label for="rating-inline" class="form-label">Your rating:</label>
+                                <b-form-rating id="rating-inline" v-model="user_rating" inline name="user_rating"></b-form-rating>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit Review</button>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Your Review:</label>
+                                <textarea name="content" class="form-control" id="content" placeholder="Enter your review here" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn" id="custom-btn">Submit Review</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
             {% else %}
-            <p class="lead mb-5">Log in to your account to leave a review.</p>
+            <p class="lead text-center mb-5">Log in to your account to leave a review.</p>
             {% endif %}
         </div>
+          
     </div>     
 </div>
 {% endblock %}

@@ -481,6 +481,25 @@ body {
 
 
 /* wishlist */
+.wishlist-image {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.wishlist-page .table .border.rounded {
+    border: 1px solid #d6d5d5;
+}
+
+.btn-custom {
+    background-color: #f7cac2;
+    color: #343F4B;
+}
+
+.btn-custom:hover {
+    background-color: #e1b1af;
+    color: #fff;
+}
 
 /* Mailchimp */
 #mc_embed_signup .helper_text{
@@ -507,6 +526,22 @@ body {
 }
 
 /* Bag items style */
+
+/* Custom styles for the update button */
+.update-btn {
+    color: #ffffff;  
+    background-color: #f7cac2;  
+    border: none;  
+    padding: 5px 10px; 
+    margin-top: 10px; 
+    border-radius: 5px;  
+    transition: background-color 0.3s ease; 
+}
+
+.update-btn:hover {
+    background-color: #e1b1af;  
+}
+
 
 /* Signup page */
 

@@ -1,5 +1,6 @@
-html {
+html, body {
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -7,6 +8,11 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Poppins', sans-serif !important; 
+}
+
+.page-content {
+    min-height: 100%;
+    padding-bottom: 80px; 
 }
 
 .main-content-offset {
@@ -400,12 +406,15 @@ body {
     border-radius: 5px;  
 }
 
-/* sticky footer */
+
+/* The sticky footer */
 .footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 1rem;
+    height: 60px; 
+    text-align: center;
+    line-height: 60px;
 }
 
 .main-content-offset-footer {

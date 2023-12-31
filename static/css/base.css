@@ -13,6 +13,9 @@ body {
     padding-top: 130px; 
 } 
 
+.main-content-offset-product {
+    padding-bottom: 70px;
+}
 
 /* ------------------------------- bootstrap overrides */
 /* Logo */

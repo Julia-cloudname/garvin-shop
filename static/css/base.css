@@ -27,9 +27,11 @@ body {
 
 /* ------------------------------- bootstrap overrides */
 /* Logo */
-.main-logo-link {
+
+
+.navbar-nav {
     display: inline-block;  
-    transform: translateX(-50px);
+    transform: translateX(-80px);
 }
 
 /* Menu */
@@ -554,18 +556,87 @@ body {
     background-color: #e1b1af;  
 }
 
+/* media queries  */
 
-/* Signup page */
 
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    
+@media (max-width: 1290px) {
+    .navbar-nav {
+        transform: translateX(-50px);
+    }
+   
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
+@media (min-width: 993px) {
+   .refferal_badge {
+    width: 220px; 
+    height: 40px; 
+    display: flex; 
+    padding: 2px 0px; 
+    justify-content: center; 
+    align-items: center;
+   }
+
+   #products-preview-section{
+    font-size: 2rem !important;
+}
 
 }
+
 
 @media (max-width: 768px) {
+    .refferal_badge {
+        width: 120px;
+        height: 28px;
+    }
 }
+ 
+@media (min-width: 769px) and (max-width: 992px) {
+
+    .refferal_badge {
+        width: 120px;
+        height: 28px;
+    }
+}
+
+
+@media (max-width: 660px) {
+    #custom-wishlist a, #custom-bag a {
+        font-size: 0 !important;
+    }
+
+    #custom-wishlist i, #custom-bag i {
+        font-size: 1.5em !important;
+    }
+
+}
+
+@media (min-width: 576px) {
+    #products-preview-section{
+        font-size: 0.9rem !important;
+    }
+}
+
+
+@media (min-width: 320px) {
+    #all-products-link, #home-page, #contacts, #about-us, #reviews, #special-offers, .dropdown-item {
+        text-align: right !important;
+    }
+     
+    #user-navigation-bar {
+        margin-left: 30%;
+    }
+
+    #user-options {
+        font-size: small;
+    }
+
+    #products-preview-section{
+        font-size: 1.2rem;
+    }
+     
+}
+
+
+
+
+

@@ -70,11 +70,11 @@
                 Hear from our happy customers who have experienced our unique postcards.
             </p>
 
-            <div class="row text-center">
-                <!-- Repeat this block for each review -->
+            <!-- Row with flex properties to ensure equal height cards -->
+            <div class="row d-flex flex-wrap align-items-stretch text-center">
                 {% for review in latest_reviews %}
-                <div class="col-md-4 mb-4">
-                    <div class="card testimonial-card">
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="card testimonial-card flex-fill">
                         <div class="card-up"></div>
                         <div class="avatar mx-auto bg-white">
                             <i class="fa-solid fa-user"></i>
@@ -97,7 +97,6 @@
             </div>
         </div>
     </section>
-
 
 
     <!-- Section displays previously viewed products --> 

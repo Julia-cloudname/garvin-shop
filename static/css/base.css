@@ -13,7 +13,7 @@ body {
 
 .page-content {
     min-height: calc(100vh - 164px); 
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 
 
@@ -600,19 +600,19 @@ body {
 
 
 @media (max-width: 660px) {
-    #custom-wishlist a, #custom-bag a {
-        font-size: 0 !important;
-    }
-
-    #custom-wishlist i, #custom-bag i {
-        font-size: 1.5em !important;
-    }
+    
 
 }
 
 @media (min-width: 576px) {
     #products-preview-section{
         font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .message-container {
+        width: 90%;
     }
 }
 
@@ -633,6 +633,7 @@ body {
     #products-preview-section{
         font-size: 1.2rem;
     }
+
      
 }
 

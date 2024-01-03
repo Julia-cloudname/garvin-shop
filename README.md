@@ -1,6 +1,6 @@
 # **Garvin card shop**
 
-The Marisol Furniture website serves as a portfolio and blog platform designed for potential customers interested in bespoke furniture. This project is developed using the Django framework and incorporates various features that facilitate interaction between customers and furniture specialists. Marisol Furniture offers users the ability to request a consultation call with an expert who can provide insights into custom furniture options, pricing, materials, and more.
+Garvin shop - is B2B postcard store that specializes in offering a wide range of original, humorous, and stylish postcards. The collection caters to a diverse clientele, providing the perfect means to express sentiments for every occasion and recipient.
 
 [Garvin](https://garvin-df2eed558b96.herokuapp.com/) - The live site can be viewed here.
 
@@ -113,7 +113,23 @@ The color palette is dominated by shades of gray (#555 for main text and buttons
 
 Wireframes for pages are linked here:
 
+<details>
+<summary> Desctop:</summary>
 ![Main page](/media/wareframe.png)
+![Products](/media/wareframe.png)
+![Main page](/media/wareframe.png)
+</details>
+
+
+<details>
+<summary> Mobile:</summary>
+![Main page](/media/wareframe.png)
+![Main page](/media/wareframe.png)
+![Main page](/media/wareframe.png)
+![Main page](/media/wareframe.png)
+</details>
+
+
 
 ## **FEATURES**
 
@@ -125,26 +141,45 @@ Wireframes for pages are linked here:
 - Unregistered users see a 'Register' option to encourage account creation and access to more features.
 
 ![Navigation](/media/all-cards.png)
+![Navigation-categories](/media/all-cards.png)
 
 #### **Mobile Navigation**
 - The mobile version features a responsive burger menu for easier navigation on smaller screens.
 - Tapping the burger icon reveals the same essential links as on the desktop version, maintaining a consistent user experience across devices.
 
+![Navigation mobile](/media/all-cards.png)
+![Navigation categories mobile](/media/all-cards.png)
+
 ### **Footer**
 - The footer includes social media links and additional information about Garvin Card Shop.
 - Users can connect with the shop on platforms like Facebook, Instagram, and Twitter.
+- Users can sign up for getting newsletters
 
 ![Footer](/media/footer.png)
+![Footer-mobile](/media/footer.png)
 
 ### **Home Page**
 - Features a banner promoting the latest card collections and special offers.
 - A 'Featured Products' section showcases select items, encouraging users to explore more.
 
-### **Products Page**
+### ** All products Page**
 - Displays a variety of cards for different occasions. Each product has a thumbnail image and a brief description.
 - Users can click on a product to view more details and purchase options.
+- User can use search and filters by caregories, rating an others
 
 ![Products](/media/all-products.png)
+
+### **Detail product page**
+- Users can get more information about the cards 
+- On the tabs users can find testimonials of previous customers
+- Registed users can leave the testimonials on product detail page
+
+![Detail product page](/media/all-products.png)
+
+### **Wishlist Page**
+- Registered users can add products to their wishlist for future reference.
+
+![Wishlist page](/media/all-products.png)
 
 ### **Special Offers Page**
 - Highlights current promotions and discounts.
@@ -154,16 +189,28 @@ Wireframes for pages are linked here:
 - Provides a contact form for user inquiries.
 - Includes essential contact information like email and phone number.
 
-### **About Us**
-- Details about Garvin Card Shop.
-- Provides background information about the shop and its unique selling points.
+![Get in touch](/media/all-products.png)
+
+### **Reviews**
+- Tha last testimonials of previous customers on main page
+- Registed users can leave the testimonials
+
+![Reviews tab](/media/all-products.png)
+![Write review tab](/media/all-products.png)
+
+### **History**
+- Registered users can see the history of their views on the main and history page
+- Registered users can manage the history (clear all or delete one by one)
+
+![History on the main page](/media/all-products.png)
+![History page](/media/all-products.png)
+
 
 ### **Profile Page (For Registered Users)**
 - Displays user information and order history.
 - Allows users to manage their account details.
 
-### **Wishlist Page**
-- Registered users can add products to their wishlist for future reference.
+![Order history](/media/all-products.png)
 
 ### **Administrative Panel (For Admin Users)**
 - Admins can manage product listings, user accounts, and view sales data.
@@ -174,9 +221,6 @@ Wireframes for pages are linked here:
 
 ### **Login/Logout Functionality**
 - Allows users to securely access their accounts and manage their shopping activities.
-
-### **Reviews**
-- Allows users to share their expirience 
 
 ![Reviews](/media/reviews.png)
 <hr>
@@ -202,6 +246,8 @@ Wireframes for pages are linked here:
 
 - [Gitpod](https://www.gitpod.io/)<br>
    Used for version control alongside GitHub.
+- [Visual Studio Code]( https://code.visualstudio.com/)<br>
+   Used for version control alongside GitHub.
 - [GitHub](https://github.com/)<br>
    Used to store the project and utilise git version control.
 - [Heroku](https://id.heroku.com)<br>
@@ -212,12 +258,6 @@ Wireframes for pages are linked here:
    Used to host the PostgreSQL database.
 - [SQLite3](https://www.sqlite.org/index.html)<br>
    Used to host the SQLite3 database.
-- [W3C - HTML](https://validator.w3.org/)<br>
-   Used to validate all HTML code.
-- [W3C - CSS](https://jigsaw.w3.org/css-validator/)<br>
-   Used to validate all CSS code.
-- [CI PEP8 Testing](https://pep8ci.herokuapp.com/)<br>
-   Used to validate all Python code.
 - [Google Fonts](https://fonts.google.com/)<br>
    Used to provide the font styling.
 - [Bootstrap](https://getbootstrap.com/)<br>
@@ -228,9 +268,19 @@ Wireframes for pages are linked here:
    Used during the development to debug and test responsiveness.
 - [marvelapp](https://marvelapp.com)<br>
    Used for creation wireframes.
+- [drawsql.app](https://drawsql.app/)<br>
+   Used for creation data base diagram
   
 <hr>
 
+Validators
+
+- [W3C - HTML](https://validator.w3.org/)<br>
+   Used to validate all HTML code.
+- [W3C - CSS](https://jigsaw.w3.org/css-validator/)<br>
+   Used to validate all CSS code.
+- [CI PEP8 Testing](https://pep8ci.herokuapp.com/)<br>
+   Used to validate all Python code.
 
 
 ## **DEPLOYMENT**
@@ -269,3 +319,4 @@ For more information on cloning please read the github documentation [here](http
 ## **CREDITS**
 
 The images of products sourced from http://garvin.pp.ua. 
+The bootstrap templates used for testimonials on the main page [Source] (https://mdbootstrap.com/docs/standard/extended/testimonials/)

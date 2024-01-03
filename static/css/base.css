@@ -99,10 +99,9 @@ body {
 .banner {
     background-image: url('/media/homepage_background_2.webp');
     position: relative;
-    padding: 2rem 0;
+    padding: 2rem 3rem;
     text-align: center;
 }
-
 
 
 /* Contact us section */

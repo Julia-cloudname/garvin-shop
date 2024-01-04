@@ -82,7 +82,7 @@
                 
                 <!-- Checkout -->
                 <div>
-                    <a href="{% url 'checkout' %}" class="btn rounded-2 btn-lg mb-2" id="custom-btn">
+                    <a href="{% url 'checkout' %}" class="btn rounded-2 btn-lg mb-2 custom-btn">
                         Secure Checkout <i class="fas fa-lock"></i>
                     </a>
                 </div>
@@ -113,7 +113,7 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
         // Update quantity on click
         $('.update-link').click(function (event) {

@@ -65,17 +65,6 @@ body {
     color: #f7cac2;
 }
 
-#custom-btn {
-    background-color: #f7cac2;
-    color: #343F4B;
-}
-
-
-#custom-btn:hover {
-    background-color: #e1b1af; 
-    color: #fff;
-}
-
 #nav-reviews-tab, #nav-submit-review-tab {
     color: #343F4B; 
     background-color: #f7cac2;
@@ -550,7 +539,7 @@ body {
     align-items: center;
    }
 
-   #products-preview-section{
+   .products-preview-section{
     font-size: 2rem !important;
 }
 
@@ -604,11 +593,25 @@ body {
         font-size: small;
     }
 
+    .user-options {
+        font-size: small;
+    }
+
     #products-preview-section{
         font-size: 1.2rem;
     }
 
      
+}
+
+.custom-btn {
+    background-color: #f7cac2 !important;
+    color: #343F4B !important;
+}
+
+.custom-btn:hover {
+    background-color: #e1b1af !important; 
+    color: #fff !important;
 }
 
 

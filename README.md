@@ -4,7 +4,7 @@ Garvin shop - is B2B postcard store that specializes in offering a wide range of
 
 [Garvin](https://garvin-df2eed558b96.herokuapp.com/) - The live site can be viewed here.
 
-![Am I Responsive?](/media/responsive.png)
+![Am I Responsive?](/media/responsivnes.png)
 
 <hr>
 
@@ -19,6 +19,7 @@ Garvin shop - is B2B postcard store that specializes in offering a wide range of
     * [Color Scheme](#colour-scheme)
     * [Typography](#typography)
     * [Wireframes](#wireframes)
+    * [DB Diagrams](#db-diagrams)
  - [**Features**](#features)
    * [Navigation](#navigation)
    * [Footer](#footer)
@@ -104,31 +105,67 @@ To help define the functionalities and prioritise key features, these 'User Stor
 The Garvin Card Shop website is designed with a focus on user experience and visual appeal. Utilizing modern CSS practices, the site offers a clean, intuitive interface.
 
 ### Color Scheme
-The color palette is dominated by shades of gray (#555 for main text and buttons, #333 for hover effects), creating a professional and elegant look. White text on darker backgrounds ensures high readability and a contemporary feel.
+The color palette is dominated by shades of gray (#343F4B) and pink (#f7cac2), creating a professional and elegant look. Dark text on lighter backgrounds ensures high readability and a contemporary feel.
 
 ### Typography
-"Lato" font is used throughout the site, providing a modern and clean appearance. The font style and sizes are carefully chosen to ensure readability and visual harmony.
+"Poppins" font is used throughout the site, providing a modern and clean appearance. The font style and sizes are carefully chosen to ensure readability and visual harmony.
 
 ### Wireframes
 
 Wireframes for pages are linked here:
 
 <details>
-<summary> Desctop:</summary>
-![Main page](/media/wareframe.png)
-![Products](/media/wareframe.png)
-![Main page](/media/wareframe.png)
+<summary> Desktop:</summary>
+
+Main page:
+
+![Main page](/media/main_page_PC.png)
+
+Footer:
+
+![Footer](/media/footer_PC.png)
+
+Bag:
+
+![Bag](/media/bag_PC.png)
+
+Profile: 
+
+![Profile](/media/profile_PC.png)
+
+Wishlist:
+
+![Wishlist](/media/wishlist_PC.png)
+
 </details>
 
 
 <details>
 <summary> Mobile:</summary>
-![Main page](/media/wareframe.png)
-![Main page](/media/wareframe.png)
-![Main page](/media/wareframe.png)
-![Main page](/media/wareframe.png)
+
+Main page:
+
+![Main page](/media/main_page_mobile.png)
+
+Products:
+
+![Products](/media/products_mobile.png)
+
+Bag:
+
+![Bag](/media/bag_mobile.png)
+
 </details>
 
+### ***DB Diagrams***
+
+<details>
+
+<summary> DB Diagrams </summary>
+
+![DB Diagrams](/media/db-diagram.png)
+
+</details>
 
 
 ## **FEATURES**
@@ -140,46 +177,91 @@ Wireframes for pages are linked here:
 - For registered users, the menu includes additional options like 'Profile' for account management and a 'Log Out' option.
 - Unregistered users see a 'Register' option to encourage account creation and access to more features.
 
-![Navigation](/media/all-cards.png)
-![Navigation-categories](/media/all-cards.png)
+<details>
+
+<summary> Navigation </summary>
+
+![Navigation](/media/navigation_account.png)
+![Navigation-categories](/media/navigation_categories.png)
+
+</details>
 
 #### **Mobile Navigation**
 - The mobile version features a responsive burger menu for easier navigation on smaller screens.
 - Tapping the burger icon reveals the same essential links as on the desktop version, maintaining a consistent user experience across devices.
 
-![Navigation mobile](/media/all-cards.png)
-![Navigation categories mobile](/media/all-cards.png)
+<details>
+
+<summary> Mobile Navigation </summary>
+
+![Navigation mobile](/media/navigation_mobile_account.png)
+![Navigation categories mobile](/media/navigation_mobile_categories.png)
+
+</details>
 
 ### **Footer**
 - The footer includes social media links and additional information about Garvin Card Shop.
 - Users can connect with the shop on platforms like Facebook, Instagram, and Twitter.
 - Users can sign up for getting newsletters
 
+<details>
+
+<summary> Footer </summary>
+
 ![Footer](/media/footer.png)
-![Footer-mobile](/media/footer.png)
+![Footer-mobile](/media/footer_mobile.png)
+
+</details>
 
 ### **Home Page**
 - Features a banner promoting the latest card collections and special offers.
 - A 'Featured Products' section showcases select items, encouraging users to explore more.
 
-### ** All products Page**
+<details>
+
+<summary> Home Page </summary>
+
+![Home Page](/media/home_page.png)
+
+</details>
+
+### **All products Page**
+
 - Displays a variety of cards for different occasions. Each product has a thumbnail image and a brief description.
 - Users can click on a product to view more details and purchase options.
 - User can use search and filters by caregories, rating an others
 
-![Products](/media/all-products.png)
+<details>
+
+<summary> Products </summary>
+
+![Products](/media/products_page.png)
+
+</details>
 
 ### **Detail product page**
 - Users can get more information about the cards 
 - On the tabs users can find testimonials of previous customers
 - Registed users can leave the testimonials on product detail page
 
-![Detail product page](/media/all-products.png)
+<details>
+
+<summary> Detail product page </summary>
+
+![Detail product page](/media/detail_product_page.png)
+
+</details>
 
 ### **Wishlist Page**
 - Registered users can add products to their wishlist for future reference.
 
-![Wishlist page](/media/all-products.png)
+<details>
+
+<summary> Wishlist </summary>
+
+![Wishlist page](/media/wishlist.png)
+
+</details>
 
 ### **Special Offers Page**
 - Highlights current promotions and discounts.
@@ -189,28 +271,66 @@ Wireframes for pages are linked here:
 - Provides a contact form for user inquiries.
 - Includes essential contact information like email and phone number.
 
-![Get in touch](/media/all-products.png)
+<details>
+
+<summary> Get in touch </summary>
+
+![Get in touch](/media/get_in_touch.png)
+
+</details>
 
 ### **Reviews**
 - Tha last testimonials of previous customers on main page
 - Registed users can leave the testimonials
 
-![Reviews tab](/media/all-products.png)
-![Write review tab](/media/all-products.png)
+<details>
+
+<summary> Reviews tab </summary>
+
+![Reviews tab](/media/reviews_tab.png)
+
+</details>
+
+<details>
+
+<summary> Write review tab </summary>
+
+![Write review tab](/media/write_review_tab.png)
+
+</details>
 
 ### **History**
 - Registered users can see the history of their views on the main and history page
 - Registered users can manage the history (clear all or delete one by one)
 
-![History on the main page](/media/all-products.png)
-![History page](/media/all-products.png)
+<details>
+
+<summary> History on the main page </summary>
+
+![History on the main page](/media/main_page_history.png)
+
+</details>
+
+<details>
+
+<summary> History page </summary>
+
+![History page](/media/history_page.png)
+
+</details>
 
 
 ### **Profile Page (For Registered Users)**
 - Displays user information and order history.
 - Allows users to manage their account details.
 
-![Order history](/media/all-products.png)
+<details>
+
+<summary> Order history </summary>
+
+![Order history](/media/order_history.png)
+
+</details>
 
 ### **Administrative Panel (For Admin Users)**
 - Admins can manage product listings, user accounts, and view sales data.
@@ -222,7 +342,6 @@ Wireframes for pages are linked here:
 ### **Login/Logout Functionality**
 - Allows users to securely access their accounts and manage their shopping activities.
 
-![Reviews](/media/reviews.png)
 <hr>
 
 ## **Testing**
@@ -285,14 +404,14 @@ Validators
 
 ## **DEPLOYMENT**
 
-### ** Create Github Repository **
+### **Create Github Repository**
 - Log in to your Github account.
 - Navigate to repositories and select 'New'.
 - Select the 'Code Institute' template from the 'Repository Template' menu.
 - Give your repository a name and select 'Create Repository'.
 - When the repository has been created select 'Gitpod' to open a new workspace.
 
-### ** Heroku **
+### **Heroku**
 - Log in to your Heroku account [Heroku](https://id.heroku.com).
 - From the home page select 'New', then select 'Create New App' from the drop-down.
 - Provide a name for your app and selectyour regrion.
@@ -302,12 +421,12 @@ Validators
 - Search for your repository name and connect.
 - Additionally, automatic deploys can be enabled for deployment after each push to Github.
 
-### ** Fork this project **
+### **Fork this project**
 - Sign in to Github and go to my [repository](https://github.com/Julia-cloudname/garvin-shop-v1)
 - At the top of the page select 'Fork'.
 - The Fork will now be added to your repositories.
 
-### ** Clone this project **
+### **Clone this project**
 - Sign in to Github and go to my [repository](https://github.com/Julia-cloudname/garvin-shop-v1)
 - Select the green 'Code' button.
 - Select from one of the cloning options HTTPS, SSH or Github CLI. Click the clipboard icon to copy the URL.
@@ -318,5 +437,5 @@ For more information on cloning please read the github documentation [here](http
 
 ## **CREDITS**
 
-The images of products sourced from http://garvin.pp.ua. 
-The bootstrap templates used for testimonials on the main page [Source] (https://mdbootstrap.com/docs/standard/extended/testimonials/)
+- The images of products sourced from http://garvin.pp.ua. 
+- The bootstrap templates used for testimonials on the main page: [source](https://mdbootstrap.com/docs/standard/extended/testimonials/)

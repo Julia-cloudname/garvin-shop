@@ -11,7 +11,7 @@
         <div class="banner-content" id="banner-wrapper">
             <h1>With author's postcards from GARVIN</h1>
                 <p>Find the perfect card for every occasion</p>
-                <a href="{% url 'products' %}" class="btn" id="custom-btn">Order cards</a>
+                <a href="{% url 'products' %}" class="btn custom-btn">Order cards</a>
         </div>
     </section>
 
@@ -28,7 +28,7 @@
                                     <img class="card-img-top img-fluid" src="{{ product.thumbnail_image.url }}" alt="{{ product.name }}">
                                 </a>
                                 <div class="card-body">
-                                    <h5 class="card-title" id="products-preview-section">{{ product.name }}</h5>
+                                    <h5 class="card-title products-preview-section.">{{ product.name }}</h5>
                                     <p class="card-text">${{ product.price }}</p>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                     {% endfor %}
                 </div>
                 <div class="text-center mt-4">
-                    <a href="{% url 'products' %}" class="btn" id="custom-btn">View More Products</a>
+                    <a href="{% url 'products' %}" class="btn custom-btn">View More Products</a>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="card-body">
                             <h4 class="mb-4">{{ review.user.username }}</h4>
-                            <hr />
+                            <hr/>
                             <p><strong>Product:</strong> <a href="{% url 'product_detail' review.product.id %}" class="product-link">{{ review.product.name }}</a></p>
                             <p class="dark-grey-text mt-4">
                                 <i class="fas fa-quote-left pe-2"></i>
@@ -113,7 +113,7 @@
                 {% endfor %}
             </div>
             <div class="text-center mt-4">
-                <a href="{% url 'view_history' %}" class="btn" id="custom-btn">Manage history</a>
+                <a href="{% url 'view_history' %}" class="btn custom-btn">Manage history</a>
             </div>
         </div>
     </section>

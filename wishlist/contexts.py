@@ -3,7 +3,9 @@ from products.models import Product
 
 
 def wishlist_contents(request):
-    """ Context for wishlist """
+    """ 
+    Context for wishlist 
+    """
     wishlist_items = []
     if request.user.is_authenticated:
         wishlist_items = Product.objects.filter(users_wishlist=request.user)

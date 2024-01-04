@@ -3,7 +3,9 @@ from .models import Product
 from wishlist.models import Wishlist
 
 class WishlistAdmin(admin.ModelAdmin):
-    """ Admin for wishlists """
+    """ 
+    Admin for wishlists 
+    """
     list_display = ('user', 'product', 'created_at')
     search_fields = ('user__username', 'product__name')
     list_filter = ('created_at', 'product', 'user')

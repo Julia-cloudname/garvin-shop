@@ -37,6 +37,7 @@ Garvin shop - is B2B postcard store that specializes in offering a wide range of
  - [**Technologies Used**](#technology-used)
  - [**Deployment**](#deployment)
  - [**Credits**](#credits)
+ - [**Known Bug**](#known_bug)
 
 <hr>
 
@@ -439,3 +440,25 @@ For more information on cloning please read the github documentation [here](http
 
 - The images of products sourced from http://garvin.pp.ua. 
 - The bootstrap templates used for testimonials on the main page: [source](https://mdbootstrap.com/docs/standard/extended/testimonials/)
+
+
+## **Known Bug: Inconsistency in Author Identity Across IDEs**
+
+### Issue Description
+During the development phase of this project, there was a transition in the Integrated Development Environment (IDE) used - from Gitpod to Visual Studio Code (VS Code). This shift inadvertently led to commits being attributed to two different GitHub accounts. This discrepancy is noticeable in the project's commit history.
+
+### Cause of the Issue
+The root cause of this issue lies in the Git configuration settings. Each IDE was configured with different user details (name and email) for Git. As a result, commits made from Gitpod and VS Code were linked to separate GitHub accounts based on the respective configurations.
+
+### Impact on the Project
+This inconsistency in author identity might cause some confusion when reviewing the commit history but does not affect the functionality or integrity of the project code.
+
+### Resolution Steps Undertaken
+Upon discovery of this issue at the project submission phase, a method to unify the Git configuration across IDEs was identified. This solution involves adjusting the Git user settings in the VS Code terminal. However, it was deemed infeasible to retrospectively apply these settings to already pushed commits without risking the stability and consistency of the project repository.
+
+### Future Measures
+To prevent such occurrences in future projects, the following steps will be taken:
+- Ensure consistent Git configuration settings across all development environments.
+- Regularly check the author information in commit history throughout the development process.
+
+

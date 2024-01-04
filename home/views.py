@@ -5,6 +5,8 @@ from history.models import ProductViewHistory
 from products.models import Product
 from reviews.models import Review
 from history.models import ProductViewHistory
+from django.conf.urls import handler404
+from . import views
 
 def index(request):
     """ A view to return the index page """

@@ -18,7 +18,7 @@
 
 ## **CSS Validation**
 
-* CSS – no errors were found when passing through the official [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+* CSS – no errors were found when passing through the official [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fgarvin-df2eed558b96.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=0&vextwarning=&lang=en#errors)
 
 <hr>
 
@@ -30,6 +30,14 @@ All Python code has been run through the [PEP8 Online Testing](https://pep8onlin
 
 ## **Lighthouse**
 Results from Lighthouse testing for both Mobile and Desktop versions show high performance, accessibility, best practices, and SEO scores.
+
+<details>
+
+<summary> Lighthouse </summary>
+
+![Lighthouse](/media/lighthous-desktop.png)
+
+</details>
 
 <hr>
 
@@ -57,6 +65,10 @@ Results from Lighthouse testing for both Mobile and Desktop versions show high p
 - Product listings are correctly displayed.
 - Each product has a functional link to its detailed view.
 
+#### **Reviews**
+
+- Functionality for displaying and adding reviews is working as expected.
+
 #### **Special Offers Page**
 
 - Special offers and promotions are prominently displayed.
@@ -81,6 +93,10 @@ Results from Lighthouse testing for both Mobile and Desktop versions show high p
 
 - Functionality for adding and viewing wishlist items is working as expected.
 
+#### **History Views Page**
+
+- Functionality for displaying and deleting items is working as expected.
+
 #### **Administrative Panel (For Admin Users)**
 
 - Admins can effectively manage product listings, user accounts, and view order data.
@@ -93,10 +109,22 @@ Results from Lighthouse testing for both Mobile and Desktop versions show high p
 
 - Social media links are functional and direct users to the respective platforms.
 
+#### **Newsletter sign up**
+
+- Functionality for Newsletter sign-up is working as expected.
+
+#### **Get in touch**
+
+- Functionality for sending messages is working as expected.
+
 <hr>
 
 ## **Bugs and Issues**
 
+During testing, I encountered a TypeError: unsupported format string passed to NoneType.__format__ error in the product_detail view of Django application. This error was triggered when attempting to display the rating of a product as a formatted string. The issue arose because the product.rating could be None if there were no reviews for the product, and the code attempted to format this None value using string formatting, which is not supported for NoneType.
 
+Resolution
+
+To address this issue, the product_detail view was updated with a conditional check that verifies if product.rating is None. If it is not None, the rating is formatted as a floating-point number with one decimal place. If it is None, indicating that there are no reviews and therefore no rating, a default string "No rating" is assigned. This approach ensures that the application can gracefully handle products without reviews without encountering a TypeError.
 
 <hr>

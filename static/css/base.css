@@ -579,6 +579,11 @@ body {
     }
 }
 
+@media (max-width: 375px) {
+    .user-options {
+        font-size: 80%;
+    }
+}
 
 @media (min-width: 320px) {
     #all-products-link, #home-page, #contacts, #about-us, #reviews, #special-offers, .dropdown-item {
@@ -589,18 +594,33 @@ body {
         margin-left: 30%;
     }
 
-    #user-options {
-        font-size: small;
-    }
-
-    .user-options {
-        font-size: small;
-    }
-
     #products-preview-section{
         font-size: 1.2rem;
     }
+     
+}
 
+@media (max-width: 300px) {
+    #all-products-link, #home-page, #contacts, #about-us, #reviews, #special-offers, .dropdown-item {
+        text-align: right !important;
+    }
+     
+    #user-navigation-bar {
+        margin-left: 30%;
+    }
+
+    .user-options {
+        font-size: 70%;
+    }
+
+    #products-preview-section{
+        font-size: 0.8rem;
+    }
+
+    .small-text {
+        font-size: 0.8em; 
+        margin-left: 15%;
+    }
      
 }
 

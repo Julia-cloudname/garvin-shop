@@ -13,9 +13,9 @@
                     <img src="{{ item.product.thumbnail_image.url }}" alt="{{ item.product.name }}" class="img-fluid" style="max-width: 100px; height: auto;">
                 </a>
             </div>
-            <div class="col-lg-4 col-md-6 col-8 mt-3"> <!-- Adjusted column sizes -->
+            <div class="col-lg-4 col-md-6 col-7 mt-3"> <!-- Adjusted column sizes -->
                 <!-- Description -->
-                <div>
+                <div class="small-text">
                     <a href="{% url 'product_detail' item.product.id %}" class="product-link"><strong>{{ item.product.name }}</strong></a>
                     <p>{{ item.product.description }}</p>
                 </div>

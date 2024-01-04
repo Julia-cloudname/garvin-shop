@@ -1,10 +1,10 @@
 <header class="container-fluid fixed-top mb-5">
     <div id="topnav" class="row align-items-center custom-bg custom-font">
         <!-- Account dropdown menu -->
-        <div class="col-3 my-auto text-center">
+        <div class="col-3 my-auto text-center user-options">
             <div class="dropdown">
                 <i class="fas fa-user fa-lg"></i>
-                <a class="nav-link dropdown-toggle user-options" id="user-options" data-toggle="dropdown" role="button"
+                <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown" role="button"
                     aria-haspopup="true" aria-expanded="false">
                     My Account
                 </a>
@@ -51,16 +51,18 @@
         <div class="col-12">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <!-- Search field -->
-                <form method="GET" action="{% url 'products' %}" class="form-inline my-2 my-lg-0" id="bottom-search">
-                    <div class="input-group">
-                        <input class="form-control border" type="text" name="q" placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
+                <div class="col">
+                    <form method="GET" action="{% url 'products' %}" class="form-inline my-2 my-lg-0" id="bottom-search">
+                        <div class="input-group">
+                            <input class="form-control border" type="text" name="q" placeholder="Search our site">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <div class="ml-auto">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

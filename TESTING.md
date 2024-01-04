@@ -12,7 +12,7 @@
 
 ## **HTML Validation**
 
-* No errors detected when run through the official [W3C HTML Validation Service](https://validator.w3.org/)
+* No errors detected when run through the official [W3C HTML Validation Service](https://validator.w3.org/nu/?doc=https%3A%2F%2Fgarvin-df2eed558b96.herokuapp.com%2F)
 
 <hr>
 
